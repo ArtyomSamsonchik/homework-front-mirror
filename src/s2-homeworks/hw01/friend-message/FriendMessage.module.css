@@ -1,23 +1,69 @@
 .friendMessage {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-top: 24px;
 }
 
 .friendImageAndText {
+  display: flex;
+  align-items: flex-end;
 }
 
 .friendImageAndText img {
+  width: 48px;
+  height: 48px;
 }
 
 .friendText {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 8px 14px;
+  margin-left: 12px;
+  max-width: 550px;
+  border-radius: var(--border-radius-small);
+  border-bottom-left-radius: 0;
+  background-color: var(--grey-450);
+  color: var(--black);
+  filter: drop-shadow(var(--drop-shadow-1)) drop-shadow(var(--drop-shadow-2));
 }
 
+/* 
+  Possible ways to create a triangle:
+    1. border hack (like in this solution)
+    2. linear-gradient
+    3. conical-gradient
+    4. clip-path
+*/
+
 .friendText:after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: -12px;
+  border-top: 14px solid transparent;
+  border-right: 16px solid var(--grey-450);
 }
 
 .friendName {
+  margin-bottom: 4px;
+  font-size: 18px;
+  font-weight: 600;
+  max-width: 250px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
 
 .friendMessageText {
+  white-space: pre-wrap;
+  overflow-wrap: break-word;
 }
 
 .friendTime {
+  font-size: 10px;
+  font-weight: 600;
+  margin-top: 5px;
+  padding-left: 10px;
 }

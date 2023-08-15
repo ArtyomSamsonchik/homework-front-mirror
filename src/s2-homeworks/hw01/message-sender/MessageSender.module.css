@@ -1,13 +1,35 @@
 .sendForm {
+  display: flex;
+  align-items: center;
+  gap: 44px;
+  margin: 27px 0 36px;
 }
 
 .textarea {
+  flex: 1 1 auto;
+  padding: 10px 24px;
+  background-color: var(--grey-450);
+  border-radius: var(--border-radius-medium);
+  box-shadow: var(--box-shadow-1), var(--box-shadow-2);
+  resize: none;
+}
+
+.textarea:focus {
+  outline: 2px solid var(--blue-400);
 }
 
 .button {
+  padding: 10px 38px;
+  background-color: var(--blue-400);
+  border-radius: var(--border-radius-medium);
+  letter-spacing: 0.5px;
+  color: var(--white);
+  cursor: pointer;
 }
 
 .button:hover {
+  background-color: var(--blue-500);
 }
 .button:active {
+  background-color: var(--blue-600);
 }

@@ -1,23 +1,71 @@
 .message {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  margin-top: 24px;
 }
 
 .imageAndText {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: flex-end;
 }
 
 .imageAndText img {
+  width: 48px;
+  height: 48px;
 }
 
 .text {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  padding: 8px 14px;
+  margin-right: 12px;
+  max-width: 550px;
+  border-radius: var(--border-radius-small);
+  border-bottom-right-radius: 0;
+  background-color: var(--blue-400);
+  color: var(--white);
+  filter: drop-shadow(var(--drop-shadow-1)) drop-shadow(var(--drop-shadow-2));
 }
 
+/* 
+  Possible ways to create a triangle:
+    1. border hack (like in this solution)
+    2. linear-gradient
+    3. conical-gradient
+    4. clip-path
+*/
+
 .text:after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  right: -12px;
+  border-top: 14px solid transparent;
+  border-left: 16px solid var(--blue-400);
 }
 
 .name {
+  margin-bottom: 4px;
+  font-size: 18px;
+  font-weight: 600;
+  max-width: 250px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
 
 .messageText {
+  white-space: pre-wrap;
+  overflow-wrap: break-word;
 }
 
 .time {
+  font-size: 10px;
+  font-weight: 600;
+  margin-top: 5px;
+  padding-right: 10px;
 }
