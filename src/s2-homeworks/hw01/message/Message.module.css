@@ -24,7 +24,7 @@
   padding: 8px 14px;
   margin-right: 12px;
   max-width: 550px;
-  border-radius: var(--border-radius-small);
+  border-radius: var(--border-radius-md);
   border-bottom-right-radius: 0;
   background-color: var(--blue-400);
   color: var(--white);

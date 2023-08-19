@@ -47,10 +47,14 @@ code {
   --grey-400: rgb(245, 247, 251);
   --grey-450: rgb(243, 244, 248);
   --grey-500: rgb(217, 217, 217);
-  --border-radius-small: 10px;
-  --border-radius-medium: 20px;
+  --grey-600: rgb(209, 209, 209);
+  --red-400: rgb(204, 0, 0);
+  --border-radius-sm: 5px;
+  --border-radius-md: 10px;
+  --border-radius-lg: 20px;
   --box-shadow-1: 0 1px 2px rgba(29, 33, 38, 0.25);
   --box-shadow-2: 0 5px 20px rgba(29, 33, 38, 0.05);
+  --box-shadow-3: 0 1px 5px rgba(29, 33, 38, 0.5);
   --drop-shadow-1: 0 1px 2px rgba(29, 33, 38, 0.25);
   --drop-shadow-2: 0 5px 20px rgba(29, 33, 38, 0.05);
 }

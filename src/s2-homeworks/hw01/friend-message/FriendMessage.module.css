@@ -22,7 +22,7 @@
   padding: 8px 14px;
   margin-left: 12px;
   max-width: 550px;
-  border-radius: var(--border-radius-small);
+  border-radius: var(--border-radius-md);
   border-bottom-left-radius: 0;
   background-color: var(--grey-450);
   color: var(--black);

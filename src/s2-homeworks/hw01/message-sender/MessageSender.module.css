@@ -9,7 +9,7 @@
   flex: 1 1 auto;
   padding: 10px 24px;
   background-color: var(--grey-450);
-  border-radius: var(--border-radius-medium);
+  border-radius: var(--border-radius-lg);
   box-shadow: var(--box-shadow-1), var(--box-shadow-2);
   resize: none;
 }
@@ -21,8 +21,7 @@
 .button {
   padding: 10px 38px;
   background-color: var(--blue-400);
-  border-radius: var(--border-radius-medium);
-  letter-spacing: 0.5px;
+  border-radius: var(--border-radius-lg);
   color: var(--white);
   cursor: pointer;
 }
