@@ -1,5 +1,4 @@
 import { ChangeEvent, forwardRef } from 'react'
-import { ReactComponent as CheckedIcon } from './checked.svg'
 import s from './SuperCheckbox.module.css'
 
 // тип пропсов обычного инпута
