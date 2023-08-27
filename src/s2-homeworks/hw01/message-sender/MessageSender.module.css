@@ -1,13 +1,15 @@
 .sendForm {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
+  justify-content: flex-end;
   gap: 44px;
   margin: 27px 0 36px;
 }
 
 .textarea {
   flex: 1 1 auto;
-  padding: 10px 24px;
+  padding: 0.75em 1.5em;
   background-color: var(--grey-450);
   border-radius: var(--border-radius-lg);
   box-shadow: var(--box-shadow-1), var(--box-shadow-2);
@@ -19,7 +21,7 @@
 }
 
 .button {
-  padding: 10px 38px;
+  padding: 0.75em 2.35em;
   background-color: var(--blue-400);
   border-radius: var(--border-radius-lg);
   color: var(--white);
@@ -31,4 +33,10 @@
 }
 .button:active {
   background-color: var(--blue-600);
+}
+
+@media (width <= 990px) {
+  .sendForm {
+    gap: 20px;
+  }
 }

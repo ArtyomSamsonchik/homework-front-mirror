@@ -1,25 +1,24 @@
+@import-normalize;
+
 *,
 ::before,
 ::after {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 html {
   font-size: 16px;
+  -webkit-tap-highlight-color: transparent;
 }
 
 input,
 textarea,
 button {
   font: inherit;
+  line-height: 1;
   border: none;
-}
-
-html,
-body,
-pre {
-  margin: 0;
-  padding: 0;
 }
 
 body {
@@ -38,20 +37,33 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
 
+@media (width <= 990px) {
+  hr {
+    margin-bottom: 20px;
+  }
+}
+
 :root {
+  /* colors */
   --white: rgb(255, 255, 255);
   --black: rgb(0, 0, 0);
-  --blue-400: rgb(0, 102, 204);
-  --blue-500: rgb(0, 92, 182);
-  --blue-600: rgb(0, 80, 161);
+  --blue-200: hsla(210, 79%, 46%, 0.04);
+  --blue-300: hsla(210, 79%, 46%, 0.09);
+  --blue-400: hsl(210, 100%, 40%);
+  --blue-500: hsl(210, 100%, 35%);
+  --blue-600: hsl(210, 100%, 30%);
   --grey-400: rgb(245, 247, 251);
   --grey-450: rgb(243, 244, 248);
   --grey-500: rgb(217, 217, 217);
   --grey-600: rgb(209, 209, 209);
-  --red-400: rgb(204, 0, 0);
+  --red-400: hsl(0, 100%, 40%);
+  --red-500: hsl(0, 100%, 35%);
+  --red-600: hsl(0, 100%, 30%);
+  /* border radiuses */
   --border-radius-sm: 5px;
   --border-radius-md: 10px;
   --border-radius-lg: 20px;
+  /* shadows */
   --box-shadow-1: 0 1px 2px rgba(29, 33, 38, 0.25);
   --box-shadow-2: 0 5px 20px rgba(29, 33, 38, 0.05);
   --box-shadow-3: 0 1px 5px rgba(29, 33, 38, 0.5);

@@ -1,35 +1,72 @@
 .button {
-}
-
-.disabled {
-}
-
-.secondary {
+  padding: 0.625em 1.5em;
+  border-radius: var(--border-radius-sm);
+  cursor: pointer;
+  text-transform: capitalize;
+  outline: 0 solid var(--grey-600);
+  transition: outline-width 0.15s ease-in-out;
 }
 
 .default {
+  composes: button;
+  --bg-color: var(--blue-400);
+  color: var(--white);
+  background-color: var(--bg-color);
 }
 
-.red {
+.button:focus-visible {
+  outline-width: 6px;
 }
 
 .default:hover {
-}
-
-.red:hover {
-}
-
-.secondary:hover {
+  --adjust-bg-color: var(--blue-500);
+  background-color: var(--adjust-bg-color);
 }
 
 .default:active {
+  --adjust-bg-color: var(--blue-600);
+  background-color: var(--adjust-bg-color);
 }
 
-.secondary:active {
+.red {
+  composes: button;
+  --bg-color: var(--red-400);
+  color: var(--white);
+  background-color: var(--bg-color);
+}
+
+.red:hover {
+  --adjust-bg-color: var(--red-500);
+  background-color: var(--adjust-bg-color);
 }
 
 .red:active {
+  --adjust-bg-color: var(--red-600);
+  background-color: var(--adjust-bg-color);
 }
 
-.button:disabled {
+.secondary {
+  composes: button;
+  --bg-color: transparent;
+  --color: var(--blue-400);
+  border: 2px solid var(--color, currentColor);
+  background-color: var(--bg-color);
+  color: var(--color);
+}
+
+.secondary:hover {
+  --adjust-bg-color: var(--blue-200);
+  background-color: var(--adjust-bg-color);
+}
+
+.secondary:active {
+  --adjust-bg-color: var(--blue-300);
+  background-color: var(--adjust-bg-color);
+}
+
+.button.disabled {
+  --adjust-bg-color: var(--bg-color);
+  filter: grayscale(30%);
+  opacity: 0.5;
+  cursor: initial;
 }

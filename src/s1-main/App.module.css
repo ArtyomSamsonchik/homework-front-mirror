@@ -10,9 +10,20 @@
 }
 
 .hwTitle {
-  margin: 36px auto 10px;
+  margin-block: 2em 0.625em;
   padding: 0 70px;
   max-width: 1280px;
-  font-size: 22px;
+  font-size: 1.375em;
   font-weight: 600;
+}
+
+@media (width <= 990px) {
+  .hw {
+    padding-inline: 20px;
+  }
+
+  .hwTitle {
+    padding-inline: 20px;
+    margin-block: 1.25em 0.625em;
+  }
 }

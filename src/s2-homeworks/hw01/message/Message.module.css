@@ -9,6 +9,7 @@
   display: flex;
   flex-direction: row-reverse;
   align-items: flex-end;
+  width: 100%;
 }
 
 .imageAndText img {
@@ -23,7 +24,7 @@
   align-items: flex-end;
   padding: 8px 14px;
   margin-right: 12px;
-  max-width: 550px;
+  width: min(75%, 45ch);
   border-radius: var(--border-radius-md);
   border-bottom-right-radius: 0;
   background-color: var(--blue-400);
@@ -49,10 +50,10 @@
 }
 
 .name {
-  margin-bottom: 4px;
-  font-size: 18px;
+  margin-bottom: 0.25rem;
+  font-size: 1.125rem;
   font-weight: 600;
-  max-width: 250px;
+  max-width: min(100%, 250px);
   white-space: nowrap;
   text-overflow: ellipsis;
   overflow: hidden;
@@ -60,11 +61,11 @@
 
 .messageText {
   white-space: pre-wrap;
-  overflow-wrap: break-word;
+  overflow-wrap: anywhere;
 }
 
 .time {
-  font-size: 10px;
+  font-size: 0.625rem;
   font-weight: 600;
   margin-top: 5px;
   padding-right: 10px;

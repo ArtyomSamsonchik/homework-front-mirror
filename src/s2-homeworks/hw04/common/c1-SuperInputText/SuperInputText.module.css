@@ -1,20 +1,36 @@
-.input:focus {
+.inputWrapper {
+  display: flex;
+  flex-direction: column;
+  width: min(100%, 372px);
 }
 
 .input {
-}
-
-.inputWrapper {
+  width: 100%;
+  padding: 0.45em 1.5em;
+  border: 2px solid;
+  border-radius: var(--border-radius-sm);
+  outline: none;
 }
 
 .superInput {
+  border-color: var(--grey-600);
+}
+
+.input:focus {
+  border-color: var(--blue-400);
 }
 
 .errorInput {
+  border-color: var(--red-400);
 }
 
 .errorInput:focus {
+  border-color: var(--red-400);
 }
 
 .error {
+  margin-bottom: 0.35em;
+  padding: 0 0.35em;
+  font-size: 0.75rem;
+  color: var(--red-400);
 }
