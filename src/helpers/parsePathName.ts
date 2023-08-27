@@ -1,11 +1,11 @@
 import capitalize from './capitalize'
 
 /**
- *  @param {string} path path must be a string that only consist of letters
- *  in range a-z in both cases divided by hyphen.
- *  @param {function} mapFn mapFn is applied to every word in parsed string
- *  @return string a string joined of mapped substrings received from mapFn
- *  @example parsePathName('/pre-junior')
+ *  @param {string} path must be a string that only consist of letters
+ *  in range a-z in both cases divided by hyphens. White spaces are not allowed;
+ *  @param {function} mapFn is applied to every word in parsed string
+ *  @return string a string joined from matched substrings obtained from mapFn
+ *  @example parsePathName('/pre-junior', (str) => str.toUpperCase())
  */
 const parsePathName = (path: string, mapFn: (substr: string) => string = capitalize) => {
   const parsedString = path
