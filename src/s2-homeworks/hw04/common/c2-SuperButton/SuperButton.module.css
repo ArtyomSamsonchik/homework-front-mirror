@@ -55,12 +55,12 @@
 }
 
 .secondary:hover {
-  --adjust-bg-color: var(--blue-200);
+  --adjust-bg-color: var(--blue-100);
   background-color: var(--adjust-bg-color);
 }
 
 .secondary:active {
-  --adjust-bg-color: var(--blue-300);
+  --adjust-bg-color: var(--blue-200);
   background-color: var(--adjust-bg-color);
 }
 

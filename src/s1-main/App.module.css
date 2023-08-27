@@ -1,6 +1,7 @@
 .App {
-  --header_height: 60px;
-  padding-top: 94px;
+  --header-height: 3.8em;
+  position: relative;
+  padding-top: var(--header-height);
 }
 
 .hw {
@@ -10,7 +11,7 @@
 }
 
 .hwTitle {
-  margin-block: 2em 0.625em;
+  margin: 2em auto 0.625em;
   padding: 0 70px;
   max-width: 1280px;
   font-size: 1.375em;
@@ -18,12 +19,15 @@
 }
 
 @media (width <= 990px) {
+  .App {
+    --header-height: 3em;
+  }
   .hw {
     padding-inline: 20px;
   }
 
   .hwTitle {
     padding-inline: 20px;
-    margin-block: 1.25em 0.625em;
+    margin: 1.25em auto 0.625em;
   }
 }

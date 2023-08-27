@@ -14,6 +14,12 @@ html {
   -webkit-tap-highlight-color: transparent;
 }
 
+a,
+a:hover,
+a:active {
+  color: inherit;
+}
+
 input,
 textarea,
 button {
@@ -23,6 +29,7 @@ button {
 }
 
 body {
+  --scrollbar-width: 0px;
   line-height: 1.2;
   font-family: Montserrat, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -48,11 +55,13 @@ code {
   /* colors */
   --white: rgb(255, 255, 255);
   --black: rgb(0, 0, 0);
-  --blue-200: hsla(210, 79%, 46%, 0.04);
-  --blue-300: hsla(210, 79%, 46%, 0.09);
+  --blue-100: hsla(210, 79%, 46%, 0.04);
+  --blue-200: hsla(210, 79%, 46%, 0.09);
+  --blue-300: hsl(210, 100%, 67%);
   --blue-400: hsl(210, 100%, 40%);
   --blue-500: hsl(210, 100%, 35%);
   --blue-600: hsl(210, 100%, 30%);
+  --blue-700: hsl(210, 43%, 42%);
   --grey-400: rgb(245, 247, 251);
   --grey-450: rgb(243, 244, 248);
   --grey-500: rgb(217, 217, 217);
@@ -65,9 +74,16 @@ code {
   --border-radius-md: 10px;
   --border-radius-lg: 20px;
   /* shadows */
-  --box-shadow-1: 0 1px 2px rgba(29, 33, 38, 0.25);
-  --box-shadow-2: 0 5px 20px rgba(29, 33, 38, 0.05);
-  --box-shadow-3: 0 1px 5px rgba(29, 33, 38, 0.5);
-  --drop-shadow-1: 0 1px 2px rgba(29, 33, 38, 0.25);
-  --drop-shadow-2: 0 5px 20px rgba(29, 33, 38, 0.05);
+  --shadow-color-1: hsla(213, 13%, 13%, 0.05);
+  --shadow-color-2: hsla(213, 13%, 13%, 0.1);
+  --shadow-color-3: hsla(213, 13%, 13%, 0.15);
+  --shadow-color-4: hsla(213, 13%, 13%, 0.25);
+  --shadow-color-5: hsla(213, 13%, 13%, 0.5);
+  --box-shadow-1: 0 1px 2px var(--shadow-color-4);
+  --box-shadow-2: 0 5px 20px var(--shadow-color-1);
+  --box-shadow-3: 0 1px 5px var(--shadow-color-5);
+  --box-shadow-4: 0 0 2px var(--shadow-color-2);
+  --box-shadow-5: 0 0 40px var(--shadow-color-3);
+  --drop-shadow-1: 0 1px 2px var(--shadow-color-4);
+  --drop-shadow-2: 0 5px 20px var(--shadow-color-1);
 }

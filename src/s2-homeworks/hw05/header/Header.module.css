@@ -1,8 +1,48 @@
-.burgerMenuIcon {
+[data-lock-scroll='true'] .headerWrapper {
+  padding-right: var(--scrollbar-width);
+}
+
+.headerWrapper {
+  position: fixed;
+  inset: 0 0 auto;
+  background-color: var(--white);
+  box-shadow: var(--box-shadow-4), var(--box-shadow-5);
+  z-index: 900;
 }
 
 .header {
+  composes: hw from '../../../s1-main/App.module.css';
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-block: 0.9em;
+}
+
+.burgerMenuIcon {
+  width: 2em;
+  height: 2em;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.burgerMenuIcon:hover {
+  opacity: 0.7;
+}
+
+.burgerMenuIcon > img {
+  width: 100%;
 }
 
 .header h1 {
+  font-size: 1.5rem;
+}
+
+@media (width <= 990px) {
+  .header {
+    padding-block: 0.5em;
+  }
+
+  .header h1 {
+    font-size: 1.3rem;
+  }
 }
