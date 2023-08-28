@@ -1,11 +1,15 @@
-.error404 {
-  width: 451px;
-  height: 100%;
-}
-
 .wrapper {
+  composes: container from '../../../common/Common.module.css';
   align-items: center;
   display: flex;
+  /*noinspection CssOverwrittenProperties*/
   height: calc(100vh - var(--header-height));
+  /* noinspection CssOverwrittenProperties*/
+  height: calc(100dvh - var(--header-height));
   justify-content: center;
+}
+
+.error404 {
+  width: 450px;
+  max-width: 85%;
 }
