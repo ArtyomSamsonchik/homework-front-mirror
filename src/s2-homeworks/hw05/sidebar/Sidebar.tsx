@@ -1,7 +1,7 @@
-import React, { FC } from 'react'
+import React, { FC, useEffect, useRef } from 'react'
 import { NavLink, NavLinkProps } from 'react-router-dom'
 import s from './Sidebar.module.css'
-import { PATH } from '../Pages'
+import { AppPathValues } from '../Pages'
 import closeIcon from './closeOutline.svg'
 import parsePathName from '../../../helpers/parsePathName'
 
@@ -10,10 +10,18 @@ type PropsType = {
   handleClose: () => void
 }
 
-const links: (typeof PATH)[keyof typeof PATH][] = ['/pre-junior', '/junior', '/junior-plus']
+const links: AppPathValues[] = ['/pre-junior', '/junior', '/junior-plus']
 
 export const Sidebar: FC<PropsType> = ({ open, handleClose }) => {
-  const sidebarClassName = `${open ? s.open : s.sidebar}`
+  const backgroundRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    setTimeout(() => {
+      if (open && backgroundRef.current) {
+        backgroundRef.current.style.opacity = '1'
+      }
+    })
+  }, [open])
 
   const getLinkClassName: NavLinkProps['className'] = ({ isActive }) =>
     isActive ? s.active : s.link
@@ -21,13 +29,19 @@ export const Sidebar: FC<PropsType> = ({ open, handleClose }) => {
   return (
     <>
       {/*затемнение справа от открытого меню*/}
-      {open && <div className={s.background} onClick={handleClose} />}
+      {open && (
+        <div
+          ref={backgroundRef}
+          style={{ opacity: 0 }}
+          className={s.background}
+          onClick={handleClose}
+        />
+      )}
 
-      <aside className={sidebarClassName}>
+      <aside className={`${open ? s.open : s.sidebar}`}>
         <button className={s.close} onClick={handleClose}>
           <img src={closeIcon} alt="close sidebar" id={'hw5-menu-close'} />
         </button>
-
         <nav id={'hw5-menu'} className={s.nav}>
           {links.map((link) => {
             const slicedLink = link.slice(1) // remove '/' from string beginning. Required for id
