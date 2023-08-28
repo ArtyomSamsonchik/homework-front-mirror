@@ -69,7 +69,7 @@ code {
   --red-400: hsl(0, 100%, 40%);
   --red-500: hsl(0, 100%, 35%);
   --red-600: hsl(0, 100%, 30%);
-  /* border radiuses */
+  /* border radii */
   --border-radius-sm: 5px;
   --border-radius-md: 10px;
   --border-radius-lg: 20px;

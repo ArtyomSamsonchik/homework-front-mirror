@@ -11,7 +11,7 @@
 }
 
 .header {
-  composes: hw from '../../../s1-main/App.module.css';
+  composes: container from '../../../common/Common.module.css';
   display: flex;
   justify-content: space-between;
   align-items: center;

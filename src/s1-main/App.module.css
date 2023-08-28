@@ -5,15 +5,12 @@
 }
 
 .hw {
-  margin: 0 auto;
-  padding: 0 70px;
-  max-width: 1280px;
+  composes: container from '../common/Common.module.css';
 }
 
 .hwTitle {
+  composes: container from '../common/Common.module.css';
   margin: 2em auto 0.625em;
-  padding: 0 70px;
-  max-width: 1280px;
   font-size: 1.375em;
   font-weight: 600;
 }
