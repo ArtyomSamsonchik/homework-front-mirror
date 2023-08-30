@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import Affairs from './affairs/Affairs'
-import s2 from '../../s1-main/App.module.css'
+import commonS from '../../common/Common.module.css'
+import s from './HW2.module.css'
 
 /*
  * 1 - описать типы AffairPriorityType, AffairType
@@ -62,9 +63,11 @@ function HW2() {
 
   return (
     <div id={'hw2'}>
-      <div className={s2.hwTitle}>Homework #2</div>
+      <div className={commonS.headerContainer}>
+        <h3 className={commonS.hwHeader}>Homework #2</h3>
+      </div>
       <hr />
-      <div className={s2.hw}>
+      <div className={s.hwContainer}>
         <Affairs
           data={filteredAffairs}
           setFilter={setFilter}

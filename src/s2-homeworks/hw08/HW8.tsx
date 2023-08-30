@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
 import { homeWorkReducer } from './bll/homeWorkReducer'
 import s from './HW8.module.css'
-import s2 from '../../s1-main/App.module.css'
+import commonS from '../../common/Common.module.css'
+
 import SuperButton from '../hw04/common/c2-SuperButton/SuperButton'
 import User from './User'
 
@@ -49,8 +50,10 @@ const HW8 = () => {
 
   return (
     <div id={'hw3'}>
-      <div className={s2.hwTitle}>Homework #8</div>
-      <div className={s2.hw}>
+      <div className={commonS.headerContainer}>
+        <h3 className={commonS.hwHeader}>Homework #8</h3>
+      </div>
+      <div className={commonS.container}>
         <div className={s.container}>
           <div className={s.buttonsContainer}>
             <SuperButton

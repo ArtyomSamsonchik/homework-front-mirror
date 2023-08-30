@@ -1,7 +1,6 @@
 .inputWrapper {
   display: flex;
   flex-direction: column;
-  width: min(100%, 372px);
 }
 
 .input {
@@ -13,6 +12,7 @@
 }
 
 .superInput {
+  composes: input;
   border-color: var(--grey-600);
 }
 
@@ -21,6 +21,7 @@
 }
 
 .errorInput {
+  composes: input;
   border-color: var(--red-400);
 }
 

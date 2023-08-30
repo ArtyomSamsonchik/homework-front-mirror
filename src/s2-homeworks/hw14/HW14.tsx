@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
-import s2 from '../../s1-main/App.module.css'
+import commonS from '../../common/Common.module.css'
+
 import s from './HW14.module.css'
 import axios from 'axios'
 import SuperDebouncedInput from './common/c8-SuperDebouncedInput/SuperDebouncedInput'
@@ -62,9 +63,11 @@ const HW14 = () => {
 
   return (
     <div id={'hw14'}>
-      <div className={s2.hwTitle}>Homework #14</div>
+      <div className={commonS.headerContainer}>
+        <h3 className={commonS.hwHeader}>Homework #14</h3>
+      </div>
 
-      <div className={s2.hw}>
+      <div className={commonS.container}>
         <SuperDebouncedInput
           id={'hw14-super-debounced-input'}
           value={find}

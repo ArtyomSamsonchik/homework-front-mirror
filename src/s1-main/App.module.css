@@ -4,27 +4,8 @@
   padding-top: var(--header-height);
 }
 
-.hw {
-  composes: container from '../common/Common.module.css';
-}
-
-.hwTitle {
-  composes: container from '../common/Common.module.css';
-  margin: 2em auto 0.625em;
-  font-size: 1.375em;
-  font-weight: 600;
-}
-
 @media (width <= 990px) {
   .App {
     --header-height: 3em;
-  }
-  .hw {
-    padding-inline: 20px;
-  }
-
-  .hwTitle {
-    padding-inline: 20px;
-    margin: 1.25em auto 0.625em;
   }
 }

@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import s from './HW11.module.css'
-import s2 from '../../s1-main/App.module.css'
+import commonS from '../../common/Common.module.css'
+
 import { restoreState } from '../hw06/localStorage/localStorage'
 import SuperRange from './common/c7-SuperRange/SuperRange'
 
@@ -21,9 +22,11 @@ function HW11() {
 
   return (
     <div id={'hw11'}>
-      <div className={s2.hwTitle}>Homework #11</div>
+      <div className={commonS.headerContainer}>
+        <h3 className={commonS.hwHeader}>Homework #11</h3>
+      </div>
 
-      <div className={s2.hw}>
+      <div className={commonS.container}>
         <div className={s.container}>
           <div className={s.wrapper}>
             <span id={'hw11-value'} className={s.number}>

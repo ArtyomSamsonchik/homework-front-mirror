@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
 import s from './HW12.module.css'
-import s2 from '../../s1-main/App.module.css'
+import commonS from '../../common/Common.module.css'
+
 import SuperSelect from '../hw07/common/c5-SuperSelect/SuperSelect'
 import { useDispatch, useSelector } from 'react-redux'
 import { changeThemeId } from './bll/themeReducer'
@@ -32,11 +33,11 @@ const HW12 = () => {
 
   return (
     <div id={'hw12'}>
-      <div id={'hw12-text'} className={s2.hwTitle}>
-        Homework #12
+      <div id={'hw12-text'} className={commonS.headerContainer}>
+        <h3>Homework #12</h3>
       </div>
 
-      <div className={s2.hw}>
+      <div className={commonS.container}>
         <SuperSelect
           id={'hw12-select-theme'}
           className={s.select}

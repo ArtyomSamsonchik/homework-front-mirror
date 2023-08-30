@@ -1,5 +1,14 @@
-.buttonsContainer {
+.hwContainer {
+  composes: container from '../../common/Common.module.css';
+  margin-bottom: 200px;
 }
 
 .editableSpanContainer {
+  margin-bottom: 20px;
+  width: min(100%, 300px);
+}
+
+.buttonsContainer {
+  display: flex;
+  gap: 24px;
 }

@@ -1,11 +1,23 @@
 .spanBlock {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.625em;
+  cursor: pointer;
+}
+
+.spanBlock:hover {
+  color: var(--light-blue-400);
 }
 
 .span {
+  font-weight: 500;
 }
 
 .input {
 }
 
 .pen {
+  width: 1.5em;
+  height: 1.5em;
+  fill: currentColor;
 }

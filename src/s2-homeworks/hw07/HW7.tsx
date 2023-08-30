@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
 import SuperSelect from './common/c5-SuperSelect/SuperSelect'
 import SuperRadio from './common/c6-SuperRadio/SuperRadio'
-import s2 from '../../s1-main/App.module.css'
+import commonS from '../../common/Common.module.css'
+
 import s from './HW7.module.css'
 
 /*
@@ -22,10 +23,12 @@ const HW7 = () => {
 
   return (
     <div id={'hw7'}>
-      <div className={s2.hwTitle}>Homework #7</div>
+      <div className={commonS.headerContainer}>
+        <h3 className={commonS.hwHeader}>Homework #7</h3>
+      </div>
 
       {/*демонстрация возможностей компонент:*/}
-      <div className={s2.hw}>
+      <div className={commonS.container}>
         <div className={s.container}>
           <div>
             <SuperSelect

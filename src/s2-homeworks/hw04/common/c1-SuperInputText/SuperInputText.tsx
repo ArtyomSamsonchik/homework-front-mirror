@@ -44,7 +44,7 @@ const SuperInputText = forwardRef<HTMLInputElement, SuperInputTextPropsType>(
 
     const finalSpanClassName = `${s.error} ${spanClassName || ''}`
     // const finalInputClassName = ... // задача на смешивание классов
-    const finalInputClassName = `${s.input} ${error ? s.errorInput : s.superInput}`
+    const finalInputClassName = `${error ? s.errorInput : s.superInput} ${className ?? ''}`
 
     return (
       <div className={s.inputWrapper}>

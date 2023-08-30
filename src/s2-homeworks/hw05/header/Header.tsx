@@ -1,5 +1,6 @@
 import React, { FC } from 'react'
 import burgerIcon from './burger.svg'
+import commonS from '../../../common/Common.module.css'
 import s from './Header.module.css'
 import { useLocation } from 'react-router-dom'
 import { AppPathValues, PATH } from '../Pages'
@@ -28,11 +29,19 @@ export const Header: FC<PropsType> = ({ handleOpen }) => {
 
   return (
     <div className={s.headerWrapper}>
-      <div id="hw5-header" className={s.header}>
-        <button className={s.burgerMenuIcon} onClick={handleOpen}>
-          <img src={burgerIcon} id="hw5-burger-menu" alt="toggle menu open" />
-        </button>
-        <h1>{pageTitle}</h1>
+      <div className={commonS.container}>
+        <div id="hw5-header" className={s.header}>
+          {/*<button className={s.burgerMenuIcon} onClick={handleOpen}>*/}
+          {/*</button>*/}
+          <img
+            className={s.burgerMenuIcon}
+            onClick={handleOpen}
+            src={burgerIcon}
+            id="hw5-burger-menu"
+            alt="toggle menu open"
+          />
+          <h1>{pageTitle}</h1>
+        </div>
       </div>
     </div>
   )

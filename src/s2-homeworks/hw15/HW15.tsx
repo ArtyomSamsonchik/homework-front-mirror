@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
-import s2 from '../../s1-main/App.module.css'
+import commonS from '../../common/Common.module.css'
+
 import s from './HW15.module.css'
 import axios from 'axios'
 import SuperPagination from './common/c9-SuperPagination/SuperPagination'
@@ -95,9 +96,11 @@ const HW15 = () => {
 
   return (
     <div id={'hw15'}>
-      <div className={s2.hwTitle}>Homework #15</div>
+      <div className={commonS.headerContainer}>
+        <h3 className={commonS.hwHeader}>Homework #15</h3>
+      </div>
 
-      <div className={s2.hw}>
+      <div className={commonS.container}>
         {idLoading && (
           <div id={'hw15-loading'} className={s.loading}>
             Loading...

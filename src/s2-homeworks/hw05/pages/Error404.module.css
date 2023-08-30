@@ -1,5 +1,6 @@
 .wrapper {
   composes: container from '../../../common/Common.module.css';
+  position: relative;
   align-items: center;
   display: flex;
   /*noinspection CssOverwrittenProperties*/
@@ -10,6 +11,8 @@
 }
 
 .error404 {
+  position: relative;
+  bottom: calc(var(--header-height) / 2);
   width: 450px;
   max-width: 85%;
 }

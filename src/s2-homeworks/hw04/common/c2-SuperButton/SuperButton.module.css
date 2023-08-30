@@ -49,6 +49,7 @@
   composes: button;
   --bg-color: transparent;
   --color: var(--blue-400);
+  padding-block: 0.5em;
   border: 2px solid var(--color, currentColor);
   background-color: var(--bg-color);
   color: var(--color);

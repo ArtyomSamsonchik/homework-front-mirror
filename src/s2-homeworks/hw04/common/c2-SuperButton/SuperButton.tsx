@@ -22,8 +22,9 @@ const SuperButton = forwardRef<HTMLButtonElement, SuperButtonPropsType>(
 
     // prettier-ignore
     const finalClassName = [
-    s[xType as keyof typeof s],
-    disabled ? s.disabled : ''
+      s[xType as keyof typeof s],
+      disabled ? s.disabled : '',
+      className
   ].join(' ')
 
     return (
