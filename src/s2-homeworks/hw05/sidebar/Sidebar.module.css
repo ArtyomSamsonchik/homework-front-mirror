@@ -1,6 +1,6 @@
 .sidebar {
   position: fixed;
-  inset: 0 auto 0 0;
+  inset: var(--header-height) auto 0 0;
   padding: 16px 24px;
   width: min(320px, 75%);
   background-color: var(--white);
@@ -9,7 +9,7 @@
   scrollbar-width: thin;
   translate: -100%;
   transition: translate 300ms var(--ease-in-out);
-  z-index: 1100;
+  z-index: 1001;
 }
 
 .open {

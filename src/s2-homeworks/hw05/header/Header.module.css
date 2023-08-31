@@ -7,7 +7,7 @@
   inset: 0 0 auto;
   background-color: var(--white);
   box-shadow: var(--box-shadow-4), var(--box-shadow-5);
-  z-index: 900;
+  z-index: 1100;
 }
 
 .header {
