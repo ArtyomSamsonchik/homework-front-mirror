@@ -1,6 +1,5 @@
 .sidebar {
-  position: fixed;
-  inset: var(--header-height) auto 0 0;
+  inset: 0 auto 0 0;
   padding: 16px 24px;
   width: min(320px, 75%);
   background-color: var(--white);
@@ -9,7 +8,11 @@
   scrollbar-width: thin;
   translate: -100%;
   transition: translate 300ms var(--ease-in-out);
-  z-index: 1001;
+  z-index: 1100;
+}
+
+[data-fixed-sidebar='true'] .sidebar {
+  position: fixed;
 }
 
 .open {
@@ -19,11 +22,15 @@
 }
 
 .background {
-  position: fixed;
+  min-height: 40px;
   inset: 0;
-  z-index: 1000;
+  z-index: 1100;
   background-color: hsla(0, 0%, 0%, 0.4);
   transition: opacity 225ms var(--ease-in-out);
+}
+
+[data-fixed-sidebar='true'] .background {
+  position: fixed;
 }
 
 .nav {
