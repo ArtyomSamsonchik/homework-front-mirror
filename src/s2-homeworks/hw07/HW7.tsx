@@ -1,8 +1,7 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import SuperSelect from './common/c5-SuperSelect/SuperSelect'
 import SuperRadio from './common/c6-SuperRadio/SuperRadio'
 import commonS from '../../common/Common.module.css'
-
 import s from './HW7.module.css'
 
 /*
@@ -13,42 +12,38 @@ import s from './HW7.module.css'
  * */
 
 const arr = [
-  { id: 1, value: 'x' },
-  { id: 2, value: 'y' },
-  { id: 3, value: 'z' },
-] // value может быть изменено
+  { value: 1, label: 'Pre-Junior' },
+  { value: 2, label: 'Junior' },
+  { value: 3, label: 'Junior +' },
+] // label может быть изменено
 
 const HW7 = () => {
-  const [value, onChangeOption] = useState(1) // селект и радио должны работать синхронно
+  const [value, setValue] = useState(1) // селект и радио должны работать синхронно
 
   return (
     <div id={'hw7'}>
       <div className={commonS.headerContainer}>
         <h3 className={commonS.hwHeader}>Homework #7</h3>
       </div>
+      <hr />
 
       {/*демонстрация возможностей компонент:*/}
-      <div className={commonS.container}>
-        <div className={s.container}>
-          <div>
-            <SuperSelect
-              id={'hw7-super-select'}
-              options={arr}
-              value={value}
-              onChangeOption={onChangeOption}
-            />
-          </div>
-          <div>
-            <SuperRadio
-              id={'hw7-super-radio'}
-              name={'hw7-radio'}
-              options={arr}
-              value={value}
-              onChangeOption={onChangeOption}
-            />
-          </div>
-        </div>
+      <div className={s.hwContainer}>
+        <SuperSelect
+          id={'hw7-super-select'}
+          options={arr}
+          value={value}
+          onChangeOption={(value) => setValue(+value)}
+        />
+        <SuperRadio
+          id={'hw7-super-radio'}
+          name={'hw7-radio'}
+          options={arr}
+          value={value}
+          onChangeOption={(value) => setValue(+value)}
+        />
       </div>
+      <hr />
     </div>
   )
 }

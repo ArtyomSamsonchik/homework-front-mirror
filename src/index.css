@@ -10,7 +10,6 @@
 }
 
 html {
-  font-size: 16px;
   -webkit-tap-highlight-color: transparent;
 }
 
@@ -55,6 +54,7 @@ code {
   /* colors */
   --white: rgb(255, 255, 255);
   --black: rgb(0, 0, 0);
+
   --blue-100: hsla(210, 79%, 46%, 0.04);
   --blue-200: hsla(210, 79%, 46%, 0.09);
   --blue-300: hsl(210, 100%, 67%);
@@ -62,11 +62,15 @@ code {
   --blue-500: hsl(210, 100%, 35%);
   --blue-600: hsl(210, 100%, 30%);
   --blue-700: hsl(210, 43%, 42%);
-  --grey-400: rgb(245, 247, 251);
-  --grey-450: rgb(243, 244, 248);
-  --grey-500: rgb(217, 217, 217);
-  --grey-600: rgb(209, 209, 209);
+
+  --grey-300: hsl(220, 43%, 97%);
+  --grey-350: hsl(228, 26%, 96%);
+  --grey-400: hsl(0, 0%, 76%);
+  --grey-500: hsl(0, 0%, 85%);
+  --grey-600: hsl(0, 0%, 82%);
+
   --light-blue-400: hsl(210, 100%, 50%);
+
   --red-400: hsl(0, 100%, 40%);
   --red-500: hsl(0, 100%, 35%);
   --red-600: hsl(0, 100%, 30%);
@@ -80,11 +84,13 @@ code {
   --shadow-color-3: hsla(213, 13%, 13%, 0.15);
   --shadow-color-4: hsla(213, 13%, 13%, 0.25);
   --shadow-color-5: hsla(213, 13%, 13%, 0.5);
+
   --box-shadow-1: 0 1px 2px var(--shadow-color-4);
   --box-shadow-2: 0 5px 20px var(--shadow-color-1);
   --box-shadow-3: 0 1px 5px var(--shadow-color-5);
   --box-shadow-4: 0 0 2px var(--shadow-color-2);
   --box-shadow-5: 0 0 40px var(--shadow-color-3);
+
   --drop-shadow-1: 0 1px 2px var(--shadow-color-4);
   --drop-shadow-2: 0 5px 20px var(--shadow-color-1);
   /* transitions */

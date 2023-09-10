@@ -1,42 +1,36 @@
-import React, { SelectHTMLAttributes, DetailedHTMLProps, ChangeEvent } from 'react'
+import React, { ChangeEvent, ComponentPropsWithoutRef, forwardRef, ElementRef } from 'react'
 import s from './SuperSelect.module.css'
 
-type DefaultSelectPropsType = DetailedHTMLProps<
-  SelectHTMLAttributes<HTMLSelectElement>,
-  HTMLSelectElement
->
+type SuperSelectOption = { value: number | string; label: string }
 
-type SuperSelectPropsType = DefaultSelectPropsType & {
-  options?: any[]
-  onChangeOption?: (option: any) => void
+type SuperSelectPropsType = ComponentPropsWithoutRef<'select'> & {
+  options?: SuperSelectOption[]
+  onChangeOption?: (option: string) => void
 }
 
-const SuperSelect: React.FC<SuperSelectPropsType> = ({
-  options,
-  className,
-  onChange,
-  onChangeOption,
-  ...restProps
-}) => {
-  const mappedOptions: any[] = options
-    ? options.map((o) => (
-        <option id={'hw7-option-' + o.id} className={s.option} key={o.id} value={o.id}>
-          {o.value}
-        </option>
-      ))
-    : [] // map options with key
-
+const SuperSelect: React.FC<SuperSelectPropsType> = forwardRef<
+  ElementRef<'select'>,
+  SuperSelectPropsType
+>(({ options = [], className, onChange, onChangeOption, ...restProps }, ref) => {
   const onChangeCallback = (e: ChangeEvent<HTMLSelectElement>) => {
     // делают студенты
+    onChange?.(e)
+    onChangeOption?.(e.currentTarget.value)
   }
 
-  const finalSelectClassName = s.select + (className ? ' ' + className : '')
+  const finalClassName = `${s.select} ${className || ''}`
 
   return (
-    <select className={finalSelectClassName} onChange={onChangeCallback} {...restProps}>
-      {mappedOptions}
-    </select>
+    <div className={s.wrapper}>
+      <select ref={ref} className={finalClassName} onChange={onChangeCallback} {...restProps}>
+        {options.map((o) => (
+          <option id={'hw7-option-' + o.value} className={s.option} key={o.value} value={o.value}>
+            {o.label}
+          </option>
+        ))}
+      </select>
+    </div>
   )
-}
+})
 
 export default SuperSelect

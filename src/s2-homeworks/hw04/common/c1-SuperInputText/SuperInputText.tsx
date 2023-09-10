@@ -1,13 +1,15 @@
-import React, { ChangeEvent, forwardRef, KeyboardEvent, ReactNode } from 'react'
+import React, {
+  ChangeEvent,
+  ComponentPropsWithoutRef,
+  ElementRef,
+  forwardRef,
+  KeyboardEvent,
+  ReactNode,
+} from 'react'
 import s from './SuperInputText.module.css'
 
 // тип пропсов обычного инпута
-
-type DefaultInputPropsType = JSX.IntrinsicElements['input']
-
-// здесь мы говорим что у нашего инпута будут такие же пропсы как у обычного инпута, кроме type
-// (чтоб не писать value: string, onChange: ...; они уже все описаны в DefaultInputPropsType)
-type SuperInputTextPropsType = Omit<DefaultInputPropsType, 'type'> & {
+type SuperInputTextPropsType = Omit<ComponentPropsWithoutRef<'input'>, 'type'> & {
   // и + ещё пропсы которых нет в стандартном инпуте
   onChangeText?: (value: string) => void
   onEnter?: () => void
@@ -15,7 +17,7 @@ type SuperInputTextPropsType = Omit<DefaultInputPropsType, 'type'> & {
   spanClassName?: string
 }
 
-const SuperInputText = forwardRef<HTMLInputElement, SuperInputTextPropsType>(
+const SuperInputText = forwardRef<ElementRef<'input'>, SuperInputTextPropsType>(
   (
     {
       onChange,

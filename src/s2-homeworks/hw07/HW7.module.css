@@ -1,2 +1,7 @@
-.container {
+.hwContainer {
+  composes: container from '../../common/Common.module.css';
+  display: flex;
+  flex-wrap: wrap;
+  gap: 36px 128px;
+  margin-bottom: 200px;
 }

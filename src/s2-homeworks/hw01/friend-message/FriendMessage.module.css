@@ -24,7 +24,7 @@
   width: min(75%, 45ch);
   border-radius: var(--border-radius-md);
   border-bottom-left-radius: 0;
-  background-color: var(--grey-450);
+  background-color: var(--grey-350);
   color: var(--black);
   filter: drop-shadow(var(--drop-shadow-1)) drop-shadow(var(--drop-shadow-2));
 }
@@ -43,7 +43,7 @@
   bottom: 0;
   left: -12px;
   border-top: 14px solid transparent;
-  border-right: 16px solid var(--grey-450);
+  border-right: 16px solid var(--grey-350);
 }
 
 .friendName {

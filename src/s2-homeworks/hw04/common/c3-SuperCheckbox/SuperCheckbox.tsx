@@ -1,17 +1,16 @@
-import { ChangeEvent, forwardRef } from 'react'
+import { ChangeEvent, ComponentPropsWithoutRef, ElementRef, forwardRef } from 'react'
 import s from './SuperCheckbox.module.css'
 
 // тип пропсов обычного инпута
 // TODO: add ForwardRef to every super component
-type DefaultInputPropsType = JSX.IntrinsicElements['input']
 
-type SuperCheckboxPropsType = Omit<DefaultInputPropsType, 'type'> & {
+type SuperCheckboxPropsType = Omit<ComponentPropsWithoutRef<'input'>, 'type'> & {
   onChangeChecked?: (checked: boolean) => void
   inputClassName?: string
   spanClassName?: string
 }
 
-const SuperCheckbox = forwardRef<HTMLInputElement, SuperCheckboxPropsType>(
+const SuperCheckbox = forwardRef<ElementRef<'input'>, SuperCheckboxPropsType>(
   (
     {
       onChange,

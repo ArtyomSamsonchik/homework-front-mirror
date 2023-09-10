@@ -1,8 +1,43 @@
+.wrapper {
+  position: relative;
+  display: inline-block;
+  min-width: 165px;
+  height: fit-content;
+  font-size: 1rem;
+}
+
+.wrapper::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+  aspect-ratio: 1;
+  background: center / 90% no-repeat url('./chevron-down.svg');
+  pointer-events: none;
+}
+
 .select {
+  position: relative;
+  padding: 0.5em;
+  padding-right: 2.4em;
+  width: 100%;
+  background-color: transparent;
+  border: 2px solid var(--grey-400);
+  border-radius: var(--border-radius-sm);
+  font-size: 1em;
+  outline: none;
+  appearance: none;
+  cursor: pointer;
 }
 
 .select:focus {
+  border-color: var(--blue-400);
 }
 
-.option:hover {
+.option {
+}
+
+.select option:checked {
+  background-color: var(--grey-500);
 }

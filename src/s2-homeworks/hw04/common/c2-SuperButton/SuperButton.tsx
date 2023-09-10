@@ -1,14 +1,13 @@
-import React, { forwardRef } from 'react'
+import React, { ComponentPropsWithoutRef, ElementRef, forwardRef } from 'react'
 import s from './SuperButton.module.css'
 
 // тип пропсов обычной кнопки, children в котором храниться название кнопки там уже описан
-type DefaultButtonPropsType = JSX.IntrinsicElements['button']
 
-type SuperButtonPropsType = DefaultButtonPropsType & {
+type SuperButtonPropsType = ComponentPropsWithoutRef<'button'> & {
   xType?: 'red' | 'secondary' | 'default' | (string & {})
 }
 
-const SuperButton = forwardRef<HTMLButtonElement, SuperButtonPropsType>(
+const SuperButton = forwardRef<ElementRef<'button'>, SuperButtonPropsType>(
   (
     {
       xType = 'default',

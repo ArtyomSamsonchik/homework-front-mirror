@@ -1,14 +1,41 @@
-.radio {
-}
-
-.radio::before {
-}
-
-.radio:checked::before {
+.options {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
 }
 
 .label {
+  display: flex;
+  gap: 0.625em;
+  font-size: 1rem;
+  cursor: pointer;
 }
 
-.options {
+.radio {
+  position: relative;
+  width: 1.375em;
+  height: 1.375em;
+  appearance: none;
+  cursor: inherit;
+  border-radius: 50%;
+  outline: 0 solid var(--blue-400);
+  transition: outline-width 0.15s ease-out;
+}
+
+.radio:focus-visible {
+  outline-width: 4px;
+}
+
+.radio::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: center / contain no-repeat url('./radio-box-blank.svg');
+}
+
+.radio:checked::before {
+  background-image: url('./radio-box-checked.svg');
+}
+
+.span {
 }
