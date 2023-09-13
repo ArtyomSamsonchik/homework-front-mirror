@@ -10,7 +10,7 @@ type SuperButtonPropsType = ComponentPropsWithoutRef<'button'> & {
 const SuperButton = forwardRef<ElementRef<'button'>, SuperButtonPropsType>(
   (
     {
-      xType = 'default',
+      xType,
       className,
       disabled,
       ...restProps // все остальные пропсы попадут в объект restProps, там же будет children
@@ -18,6 +18,7 @@ const SuperButton = forwardRef<ElementRef<'button'>, SuperButtonPropsType>(
     ref,
   ) => {
     // const finalClassName = s.button + (disabled ? s.disabled : xType === 'red' ? s.red : s.default)
+    xType ||= 'default'
 
     // prettier-ignore
     const finalClassName = [

@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 import { homeWorkReducer } from './bll/homeWorkReducer'
 import s from './HW8.module.css'
 import commonS from '../../common/Common.module.css'
+import { ReactComponent as ArrowUp } from './common/arrow-up.svg'
+import { ReactComponent as ArrowDown } from './common/arrow-down.svg'
 
 import SuperButton from '../hw04/common/c2-SuperButton/SuperButton'
 import User from './User'
@@ -18,6 +20,8 @@ export type UserType = {
   age: number
 }
 
+type SortOrder = 'up' | 'down' | '18'
+
 const initialPeople: UserType[] = [
   // студенты могут поменять имя/возраст/количество объектов, _id должны быть целочисленные
   { _id: 0, name: 'Кот', age: 3 },
@@ -30,60 +34,64 @@ const initialPeople: UserType[] = [
 
 const HW8 = () => {
   const [people, setPeople] = useState<UserType[]>(initialPeople)
-  const [currentSort, setCurrentSort] = useState('')
+  const [currentSort, setCurrentSort] = useState('' as SortOrder)
 
   const finalPeople = people.map((u: UserType) => <User key={u._id} u={u} />)
 
-  const sortUp = () => {
-    setPeople(homeWorkReducer(initialPeople, { type: 'sort', payload: 'up' })) // в алфавитном порядке a.name > b.name
-    setCurrentSort('up')
+  const handleSortClick = (order: Exclude<SortOrder, '18'>) => () => {
+    setPeople(homeWorkReducer(initialPeople, { type: 'sort', payload: order }))
+    setCurrentSort(order)
   }
 
-  const sortDown = () => {
-    setPeople(homeWorkReducer(initialPeople, { type: 'sort', payload: 'down' })) // в обратном порядке a.name < b.name}
-    setCurrentSort('down')
-  }
   const check18 = () => {
     setPeople(homeWorkReducer(initialPeople, { type: 'check', payload: 18 })) // совершеннолетние
     setCurrentSort('18')
   }
 
+  const getButtonType = (order: SortOrder) => (order === currentSort ? '' : 'secondary')
+
   return (
-    <div id={'hw3'}>
+    <div id="hw8">
       <div className={commonS.headerContainer}>
         <h3 className={commonS.hwHeader}>Homework #8</h3>
       </div>
-      <div className={commonS.container}>
-        <div className={s.container}>
+      <hr />
+      <div className={s.hwContainer}>
+        <div className={s.innerContainer}>
           <div className={s.buttonsContainer}>
             <SuperButton
-              id={'hw8-button-up'}
-              onClick={sortUp}
-              xType={currentSort === 'up' ? '' : 'secondary'}
+              id="hw8-button-up"
+              className={s.button}
+              onClick={handleSortClick('up')}
+              xType={getButtonType('up')}
             >
-              Sort up
+              Sort <span className={s.buttonLabel}>up</span>
+              <ArrowUp fill="currentColor" />
             </SuperButton>
             <SuperButton
-              id={'hw8-button-down'}
-              onClick={sortDown}
-              xType={currentSort === 'down' ? '' : 'secondary'}
+              id="hw8-button-down"
+              className={s.button}
+              onClick={handleSortClick('down')}
+              xType={getButtonType('down')}
             >
-              Sort down
+              Sort <span className={s.buttonLabel}>down</span>
+              <ArrowDown fill="currentColor" />
             </SuperButton>
             <SuperButton
-              id={'hw8-button-18'}
+              id="hw8-button-18"
+              className={s.button}
               onClick={check18}
-              xType={currentSort === '18' ? '' : 'secondary'}
+              xType={getButtonType('18')}
             >
-              Check 18+
+              <span className={s.buttonLabel}>Check</span> 18+
             </SuperButton>
           </div>
 
-          <table id={'hw8-users'} className={s.users}>
+          <table id="hw8-users" className={s.users}>
             <thead className={s.thead}>
               <tr>
-                <td className={s.nameCol}>Name</td>
-                <td className={s.ageCol}>Age</td>
+                <td className={s.headCell}>Name</td>
+                <td className={s.headCell}>Age</td>
               </tr>
             </thead>
 
@@ -91,6 +99,7 @@ const HW8 = () => {
           </table>
         </div>
       </div>
+      <hr />
     </div>
   )
 }

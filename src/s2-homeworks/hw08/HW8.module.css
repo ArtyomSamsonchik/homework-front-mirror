@@ -1,23 +1,87 @@
-.item {
+.hwContainer {
+  composes: container from '../../common/Common.module.css';
+  margin-bottom: 36px;
 }
 
-.item:last-of-type {
-}
-
-.users {
+.innerContainer {
+  max-width: 600px;
+  overflow: auto;
 }
 
 .buttonsContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-bottom: 18px;
 }
 
-.container {
+.buttonsContainer .button {
+  flex-basis: 20%;
+  text-transform: unset;
+}
+
+.users {
+  width: 100%;
+  table-layout: fixed;
+  border-collapse: collapse;
+  font-family: Roboto, sans-serif;
+  font-size: 1rem;
 }
 
 .thead {
+  background-color: var(--grey-700);
+  font-weight: 700;
+}
+
+.tbodyRow:not(:last-of-type) {
+  border-bottom: 1px solid var(--grey-600);
+}
+
+.cell {
+  padding: 1em 1.125em;
+  letter-spacing: 0.015625em; /*  0.25px / 16px */
+}
+
+.headCell {
+  composes: cell;
+  padding-block: 0.75em;
+}
+
+.headCell:first-child {
+  width: 50%;
 }
 
 .nameCol {
+  composes: cell;
+  font-weight: 300;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 .ageCol {
+  composes: cell;
+  font-weight: 500;
+}
+
+@media (width <= 600px) {
+  .buttonsContainer .button {
+    padding-inline: 0.625em;
+    text-transform: capitalize;
+  }
+
+  .headCell:first-child {
+    width: 70%;
+  }
+
+  .buttonLabel {
+    display: none;
+  }
+}
+
+@media (width <= 400px) {
+  .buttonsContainer .button {
+    flex-grow: 1;
+  }
 }
