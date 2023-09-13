@@ -8,6 +8,7 @@
   text-transform: capitalize;
   outline: 0 solid var(--grey-600);
   transition: outline-width 0.15s ease-in-out;
+  box-shadow: var(--box-shadow-1), var(--box-shadow-2);
 }
 
 .default {
@@ -56,6 +57,7 @@
   border: 2px solid var(--color, currentColor);
   background-color: var(--bg-color);
   color: var(--color);
+  box-shadow: none;
 }
 
 .secondary:hover {

@@ -1,14 +1,32 @@
-.buttonsContainer {
-}
-
 .clock {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 22ch;
 }
 
 .watch {
+  font-size: 1.25rem;
+  margin-bottom: 0.5em;
 }
 
 .watch strong {
+  display: inline-block;
+  width: 6.5ch;
 }
 
 .more {
+  margin-bottom: 28px;
+  opacity: 0.5;
+}
+
+.buttonsContainer {
+  display: flex;
+  gap: 20px;
+  width: 100%;
+  padding-inline: 1em;
+}
+
+.buttonsContainer .button {
+  flex: 1 1 0;
 }

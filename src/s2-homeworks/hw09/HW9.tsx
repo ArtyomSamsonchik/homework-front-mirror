@@ -1,6 +1,7 @@
 import React from 'react'
 import Clock from './Clock'
 import commonS from '../../common/Common.module.css'
+import s from './HW9.module.css'
 
 /*
  * 1 - в файле Clock.tsx дописать функции stop, start, onMouseEnter, onMouseLeave
@@ -15,10 +16,12 @@ const HW9 = () => {
       <div className={commonS.headerContainer}>
         <h3 className={commonS.hwHeader}>Homework #9</h3>
       </div>
+      <hr />
 
-      <div className={commonS.container}>
+      <div className={s.hwContainer}>
         <Clock />
       </div>
+      <hr />
     </div>
   )
 }

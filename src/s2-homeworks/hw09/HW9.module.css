@@ -1,0 +1,4 @@
+.hwContainer {
+  composes: container from '../../common/Common.module.css';
+  margin-bottom: 200px;
+}
