@@ -1,3 +1,16 @@
 .loader {
-  /*свг и/или анимация*/
+  width: 108px;
+  aspect-ratio: 1;
+  background-image: url('./common/loader.png');
+  animation: loading 1s infinite linear;
+}
+
+@keyframes loading {
+  from {
+    rotate: 0;
+  }
+
+  to {
+    rotate: 1turn;
+  }
 }

@@ -2,12 +2,13 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 22ch;
+  width: min(100%, 22ch);
 }
 
 .watch {
   font-size: 1.25rem;
   margin-bottom: 0.5em;
+  text-align: center;
 }
 
 .watch strong {
@@ -17,11 +18,13 @@
 
 .more {
   margin-bottom: 28px;
+  text-align: center;
   opacity: 0.5;
 }
 
 .buttonsContainer {
   display: flex;
+  flex-wrap: wrap;
   gap: 20px;
   width: 100%;
   padding-inline: 1em;

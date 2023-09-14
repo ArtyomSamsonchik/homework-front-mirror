@@ -63,6 +63,7 @@ code {
   --blue-600: hsl(210, 100%, 30%);
   --blue-700: hsl(210, 43%, 42%);
 
+  --grey-200: hsl(0, 0%, 55%);
   --grey-300: hsl(220, 43%, 97%);
   --grey-350: hsl(228, 26%, 96%);
   --grey-400: hsl(0, 0%, 76%);
@@ -75,6 +76,8 @@ code {
   --red-400: hsl(0, 100%, 40%);
   --red-500: hsl(0, 100%, 35%);
   --red-600: hsl(0, 100%, 30%);
+
+  --green-400: hsl(130, 100%, 40%);
   /* border radii */
   --border-radius-sm: 5px;
   --border-radius-md: 10px;

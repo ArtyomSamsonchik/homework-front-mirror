@@ -1,8 +1,23 @@
+.hwContainer {
+  composes: container from '../../common/Common.module.css';
+  margin-bottom: 180px;
+}
+
 .container {
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
 }
 
 .wrapper {
+  display: flex;
+  align-items: center;
+  gap: 1.5em;
+  font-size: 1rem;
 }
 
 .number {
+  width: 3ch;
+  font-weight: 600;
+  text-align: center;
 }
