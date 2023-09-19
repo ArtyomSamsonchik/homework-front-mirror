@@ -2,9 +2,9 @@ import React from 'react'
 import { Slider, SliderProps, sliderClasses } from '@mui/material'
 
 const colors = {
-  green: 'hsl(130, 100%, 40%)',
-  lightGreen: 'hsla(130, 100%, 40%, 16%)',
-  grey: 'hsl(0, 0%, 55%)',
+  green: 'var(--green-400)',
+  lightGreen: 'var(--light-green)',
+  grey: 'var(--grey-200)',
 }
 
 const SuperRange: React.FC<SliderProps> = ({ sx, ...props }) => {
@@ -21,8 +21,9 @@ const SuperRange: React.FC<SliderProps> = ({ sx, ...props }) => {
         [`& .${sliderClasses.thumb}`]: {
           width: '1.5em',
           height: '1.5em',
-          border: `1px solid ${green}`,
+          border: `2px solid ${green}`,
           color: 'white',
+          backgroundColor: 'var(--bg-primary)',
           [`&:hover, &.${sliderClasses.focusVisible}`]: {
             boxShadow: `0 0 0 6px ${lightGreen}`,
           },

@@ -17,18 +17,11 @@ export type AppPathValues = AppPath[keyof AppPath]
 
 function Pages() {
   // Routes выбирает первый подходящий роут
-
-  const layout = (
-    <Layout>
-      <Outlet />
-    </Layout>
-  )
-
   return (
     <Routes>
       {/*роутинг будут писать студенты*/}
       {/*в начале мы попадаем на страницу '/' и переходим сразу на страницу /pre-junior*/}
-      <Route path="/" element={layout}>
+      <Route path="/" element={<Layout />}>
         <Route index element={<Navigate to={PATH.PRE_JUNIOR} replace />} />
         <Route path=":flag" element={<Navigate to={PATH.PRE_JUNIOR} replace />} />
 

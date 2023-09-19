@@ -10,11 +10,15 @@
 .textarea {
   flex: 1 1 auto;
   padding: 0.65em 1.5em;
-  background-color: var(--grey-350);
+  background-color: var(--bg-secondary);
   border-radius: var(--border-radius-lg);
   line-height: 1.2;
   box-shadow: var(--box-shadow-1), var(--box-shadow-2);
   resize: none;
+}
+
+.textarea::placeholder {
+  opacity: 0.8;
 }
 
 .textarea:focus {
@@ -25,7 +29,7 @@
   padding: 0.75em 2.35em;
   background-color: var(--blue-400);
   border-radius: var(--border-radius-lg);
-  color: var(--white);
+  color: var(--bg-primary);
   cursor: pointer;
 }
 

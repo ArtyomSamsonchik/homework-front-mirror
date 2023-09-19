@@ -30,12 +30,12 @@
 }
 
 .thead {
-  background-color: var(--grey-700);
+  background-color: var(--accent-light);
   font-weight: 700;
 }
 
 .tbodyRow:not(:last-of-type) {
-  border-bottom: 1px solid var(--grey-600);
+  border-bottom: 1px solid var(--accent-dark);
 }
 
 .cell {

@@ -2,7 +2,6 @@ import React, { FC, useEffect, useRef } from 'react'
 import { NavLink, NavLinkProps } from 'react-router-dom'
 import s from './Sidebar.module.css'
 import { AppPathValues } from '../Pages'
-import closeIcon from './closeOutline.svg'
 import parsePathName from '../../../helpers/parsePathName'
 
 type PropsType = {
@@ -39,9 +38,7 @@ export const Sidebar: FC<PropsType> = ({ open, handleClose }) => {
       )}
 
       <aside className={`${open ? s.open : s.sidebar}`}>
-        <button className={s.close} onClick={handleClose}>
-          <img src={closeIcon} alt="close sidebar" id={'hw5-menu-close'} />
-        </button>
+        <button id={'hw5-menu-close'} className={s.close} onClick={handleClose} />
         <nav id={'hw5-menu'} className={s.nav}>
           {links.map((link) => {
             const slicedLink = link.slice(1) // remove '/' from string beginning. Required for id

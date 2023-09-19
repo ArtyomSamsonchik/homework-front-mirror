@@ -28,7 +28,7 @@
   border-radius: var(--border-radius-md);
   border-bottom-right-radius: 0;
   background-color: var(--blue-400);
-  color: var(--white);
+  color: var(--bg-primary);
   filter: drop-shadow(var(--drop-shadow-1)) drop-shadow(var(--drop-shadow-2));
 }
 

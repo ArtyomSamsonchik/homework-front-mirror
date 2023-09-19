@@ -30,11 +30,23 @@
   content: '';
   position: absolute;
   inset: 0;
-  background: center / contain no-repeat url('./radio-box-blank.svg');
+  background: center / contain no-repeat;
 }
 
-.radio:checked::before {
-  background-image: url('./radio-box-checked.svg');
+[data-theme='1'] .radio::before {
+  background-image: url('./radio-box-blank-black.svg');
+}
+
+[data-theme='3'] .radio::before {
+  background-image: url('./radio-box-blank-white.svg');
+}
+
+[data-theme='1'] .radio:checked::before {
+  background-image: url('./radio-box-checked-black.svg');
+}
+
+[data-theme='3'] .radio:checked::before {
+  background-image: url('./radio-box-checked-white.svg');
 }
 
 .span {

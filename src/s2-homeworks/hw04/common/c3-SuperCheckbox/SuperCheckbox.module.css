@@ -9,14 +9,18 @@
   margin-right: 0.5em;
   width: 1.4em;
   height: 1.4em;
-  background: transparent center / 75% no-repeat;
+  background: var(--bg-primary) center / 75% no-repeat;
   border: 2px solid var(--blue-400, currentColor);
   border-radius: 3px;
   cursor: pointer;
 }
 
-.label > input:checked {
-  background-image: url('./checked.svg');
+[data-theme='1'] .label > input:checked {
+  background-image: url('./checked-blue.svg');
+}
+
+[data-theme='3'] .label > input:checked {
+  background-image: url('./checked-light-blue.svg');
 }
 
 .label > input:focus {

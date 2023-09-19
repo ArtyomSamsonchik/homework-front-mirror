@@ -19,6 +19,7 @@
   flex-shrink: 0;
   width: 40px;
 
+  color: currentColor;
   background-color: transparent;
   border: none;
   border-left: 2px solid var(--color);
@@ -31,10 +32,10 @@
 
 .closeButton:hover {
   background-color: var(--color);
-  color: var(--white);
+  color: var(--bg-primary);
 }
 
 .closeButton:active {
   background-color: var(--dimmed-color);
-  color: var(--white);
+  color: var(--bg-primary);
 }

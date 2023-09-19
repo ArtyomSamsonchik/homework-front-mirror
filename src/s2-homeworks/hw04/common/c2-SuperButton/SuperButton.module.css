@@ -4,9 +4,10 @@
   align-items: center;
   padding: 0.625em 1.5em;
   border-radius: var(--border-radius-sm);
+  font-weight: 500;
   cursor: pointer;
   text-transform: capitalize;
-  outline: 0 solid var(--grey-600);
+  outline: 0 solid var(--accent-dark);
   transition: outline-width 0.15s ease-in-out;
   box-shadow: var(--box-shadow-1), var(--box-shadow-2);
 }
@@ -14,7 +15,7 @@
 .default {
   composes: button;
   --bg-color: var(--blue-400);
-  color: var(--white);
+  color: var(--bg-primary);
   background-color: var(--bg-color);
 }
 
@@ -35,7 +36,7 @@
 .red {
   composes: button;
   --bg-color: var(--red-400);
-  color: var(--white);
+  color: var(--bg-primary);
   background-color: var(--bg-color);
 }
 
@@ -51,7 +52,7 @@
 
 .secondary {
   composes: button;
-  --bg-color: transparent;
+  --bg-color: var(--bg-primary);
   --color: var(--blue-400);
   padding-block: 0.5em;
   border: 2px solid var(--color, currentColor);

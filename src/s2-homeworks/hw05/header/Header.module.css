@@ -5,7 +5,7 @@
 .headerWrapper {
   position: fixed;
   inset: 0 0 auto;
-  background-color: var(--white);
+  background-color: var(--bg-primary-light);
   box-shadow: var(--box-shadow-4), var(--box-shadow-5);
   z-index: 900;
 }
@@ -20,8 +20,16 @@
 .burgerMenuIcon {
   width: 2em;
   height: 2em;
-  background-color: transparent;
+  background: transparent center / cover no-repeat;
   cursor: pointer;
+}
+
+[data-theme='1'] .burgerMenuIcon {
+  background-image: url('./burger-black.svg');
+}
+
+[data-theme='3'] .burgerMenuIcon {
+  background-image: url('./burger-white.svg');
 }
 
 .burgerMenuIcon:hover {

@@ -1,14 +1,10 @@
-import React, { FC, ReactNode, useEffect, useState } from 'react'
+import { FC, useEffect, useState } from 'react'
 import { Header } from '../header/Header'
 import { Sidebar } from '../sidebar/Sidebar'
 import useScrollLock from '../../../hooks/useScrollLock'
-import { useParams } from 'react-router-dom'
+import { Outlet, useParams } from 'react-router-dom'
 
-type PropsType = {
-  children: ReactNode
-}
-
-export const Layout: FC<PropsType> = ({ children }) => {
+export const Layout: FC = () => {
   const [open, setOpen] = useState(false)
   const { flag } = useParams()
 
@@ -25,10 +21,9 @@ export const Layout: FC<PropsType> = ({ children }) => {
 
   return (
     <>
-      <Sidebar open={open} handleClose={handleClose} />
       <Header handleOpen={handleOpen} />
-      {/*страницы*/}
-      {children}
+      <Sidebar open={open} handleClose={handleClose} />
+      <Outlet />
     </>
   )
 }

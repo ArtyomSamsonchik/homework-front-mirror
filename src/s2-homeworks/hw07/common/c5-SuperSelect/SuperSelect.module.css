@@ -13,22 +13,35 @@
   right: 0;
   height: 100%;
   aspect-ratio: 1;
-  background: center / 90% no-repeat url('./chevron-down.svg');
+  background: center / 90% no-repeat;
   pointer-events: none;
 }
 
+[data-theme='1'] .wrapper::after {
+  background-image: url('./chevron-down-black.svg');
+}
+
+[data-theme='3'] .wrapper::after {
+  background-image: url('./chevron-down-white.svg');
+}
+
 .select {
+  appearance: none;
   position: relative;
   padding: 0.5em;
   padding-right: 2.4em;
   width: 100%;
-  background-color: transparent;
-  border: 2px solid var(--grey-400);
+  background-color: var(--bg-primary-light);
+  border: 2px solid var(--accent-dark);
   border-radius: var(--border-radius-sm);
+  color: currentColor;
   font-size: 1em;
   outline: none;
-  appearance: none;
   cursor: pointer;
+}
+
+[data-theme='3'] .select {
+  border-color: var(--accent);
 }
 
 .select:focus {
@@ -39,5 +52,5 @@
 }
 
 .select option:checked {
-  background-color: var(--grey-500);
+  background-color: var(--accent-dark);
 }

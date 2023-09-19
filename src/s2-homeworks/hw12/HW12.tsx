@@ -1,10 +1,11 @@
-import React, { useEffect } from 'react'
 import s from './HW12.module.css'
 import commonS from '../../common/Common.module.css'
 
 import SuperSelect from '../hw07/common/c5-SuperSelect/SuperSelect'
 import { useDispatch, useSelector } from 'react-redux'
 import { changeThemeId } from './bll/themeReducer'
+import { AppStoreType } from '../hw10/bll/store'
+import { saveState } from '../hw06/localStorage/localStorage'
 
 /*
  * 1 - в файле themeReducer.ts написать нужные типы вместо any, дописать редьюсер
@@ -13,37 +14,42 @@ import { changeThemeId } from './bll/themeReducer'
  * 4 - передать пропсы в SuperSelect
  * */
 
-const themes = [
-  { id: 1, value: 'light' },
-  { id: 2, value: 'blue' },
-  { id: 3, value: 'dark' },
+const themes: { value: number; label: string }[] = [
+  { value: 1, label: 'light' },
+  { value: 2, label: 'blue' },
+  { value: 3, label: 'dark' },
 ]
 
 const HW12 = () => {
   // взять ид темы из редакса
-  const themeId = 1
+  const themeId = useSelector((state: AppStoreType) => state.theme.themeId)
+  const dispatch = useDispatch()
 
-  const change = (id: any) => {
+  const handleThemeChange = (id: string) => {
     // дописать функцию
+    dispatch(changeThemeId(+id))
+    saveState('theme', id)
   }
 
-  useEffect(() => {
-    document.documentElement.dataset.theme = themeId + ''
-  }, [themeId])
-
   return (
-    <div id={'hw12'}>
-      <div id={'hw12-text'} className={commonS.headerContainer}>
+    <div id="hw12">
+      <div id="hw12-text" className={commonS.headerContainer}>
         <h3>Homework #12</h3>
       </div>
+      <hr />
 
-      <div className={commonS.container}>
+      <div className={s.hwContainer}>
+        <p className={s.caption}>Выберите тему</p>
         <SuperSelect
-          id={'hw12-select-theme'}
+          id="hw12-select-theme"
           className={s.select}
           // сделать переключение тем
+          value={themeId}
+          options={themes}
+          onChangeOption={handleThemeChange}
         />
       </div>
+      <hr />
     </div>
   )
 }

@@ -8,12 +8,13 @@
   padding: 0.45em 1.5em;
   border: 2px solid;
   border-radius: var(--border-radius-sm);
+  background-color: var(--bg-primary-light);
   outline: none;
 }
 
 .superInput {
   composes: input;
-  border-color: var(--grey-600);
+  border-color: var(--accent-dark);
 }
 
 .input:focus {

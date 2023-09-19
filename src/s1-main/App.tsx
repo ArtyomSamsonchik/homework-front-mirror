@@ -1,8 +1,15 @@
 import React from 'react'
 import s from './App.module.css'
 import HW5 from '../s2-homeworks/hw05/HW5'
+import useTheme from '../hooks/useAppTheme'
+import { useSelector } from 'react-redux'
+import { AppStoreType } from '../s2-homeworks/hw10/bll/store'
 
 function App() {
+  const themeId = useSelector((state: AppStoreType) => state.theme.themeId)
+
+  useTheme(themeId.toString())
+
   return (
     <div className={s.App}>
       {/*раскомментировать по ходу выполнения*/}

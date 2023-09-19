@@ -2,7 +2,7 @@
   inset: 0 auto 0 0;
   padding: 16px 24px;
   width: min(320px, 75%);
-  background-color: var(--white);
+  background-color: var(--bg-primary-light);
   box-shadow: var(--box-shadow-4), var(--box-shadow-5);
   overflow: auto;
   scrollbar-width: thin;
@@ -68,8 +68,16 @@
   margin-bottom: 24px;
   width: 2em;
   height: 2em;
-  background-color: transparent;
+  background: transparent center / cover no-repeat;
   cursor: pointer;
+}
+
+[data-theme='1'] .close {
+  background-image: url('./closeOutline-black.svg');
+}
+
+[data-theme='3'] .close {
+  background-image: url('./closeOutline-white.svg');
 }
 
 .close:hover {

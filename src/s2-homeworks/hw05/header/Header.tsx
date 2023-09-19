@@ -1,5 +1,4 @@
 import React, { FC } from 'react'
-import burgerIcon from './burger.svg'
 import commonS from '../../../common/Common.module.css'
 import s from './Header.module.css'
 import { useLocation } from 'react-router-dom'
@@ -33,13 +32,7 @@ export const Header: FC<PropsType> = ({ handleOpen }) => {
         <div id="hw5-header" className={s.header}>
           {/*<button className={s.burgerMenuIcon} onClick={handleOpen}>*/}
           {/*</button>*/}
-          <img
-            className={s.burgerMenuIcon}
-            onClick={handleOpen}
-            src={burgerIcon}
-            id="hw5-burger-menu"
-            alt="toggle menu open"
-          />
+          <button className={s.burgerMenuIcon} onClick={handleOpen} id="hw5-burger-menu" />
           <h1>{pageTitle}</h1>
         </div>
       </div>

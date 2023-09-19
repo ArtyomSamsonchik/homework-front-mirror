@@ -1,21 +1,10 @@
-[data-theme='1'] {
-  --color: #000000;
-  --background: #ffffff;
+.hwContainer {
+  composes: container from '../../common/Common.module.css';
+  margin-bottom: 200px;
 }
 
-[data-theme='2'] {
-  --color: #000000;
-  --background: #ddeeff;
-}
-
-[data-theme='3'] {
-  --color: #ffffff;
-  --background: #212a34;
-}
-
-html {
-  background-color: var(--background);
-  color: var(--color);
+.caption {
+  margin-bottom: 0.375em;
 }
 
 .select {
