@@ -68,16 +68,14 @@
   margin-bottom: 24px;
   width: 2em;
   height: 2em;
-  background: transparent center / cover no-repeat;
+  background-color: transparent;
   cursor: pointer;
 }
 
-[data-theme='1'] .close {
-  background-image: url('./closeOutline-black.svg');
-}
-
-[data-theme='3'] .close {
-  background-image: url('./closeOutline-white.svg');
+.close svg {
+  fill: currentColor;
+  width: 100%;
+  height: 100%;
 }
 
 .close:hover {

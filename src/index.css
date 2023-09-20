@@ -85,6 +85,11 @@ code {
   background-color: var(--bg-primary);
 }
 
+/*  
+  TODO: add animation when transitioning colors across themes,
+  including props: color, background-color, border-color, outline-color etc
+*/
+
 :root {
   /* theme  */
   --bg-primary: white;

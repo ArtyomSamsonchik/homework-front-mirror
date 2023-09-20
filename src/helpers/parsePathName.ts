@@ -3,7 +3,7 @@ import capitalize from './capitalize'
 /**
  *  @param {string} path must be a string that only consist of letters
  *  in range a-z in both cases divided by hyphens. White spaces are not allowed;
- *  @param {function} mapFn is applied to every word in parsed string
+ *  @param {function} mapFn is applied to every word in parsed string. Capitalize function is used by default.
  *  @return string a string joined from matched substrings obtained from mapFn
  *  @example parsePathName('/pre-junior', (str) => str.toUpperCase())
  */

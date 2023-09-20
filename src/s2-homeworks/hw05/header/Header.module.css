@@ -20,16 +20,14 @@
 .burgerMenuIcon {
   width: 2em;
   height: 2em;
-  background: transparent center / cover no-repeat;
+  background-color: transparent;
   cursor: pointer;
 }
 
-[data-theme='1'] .burgerMenuIcon {
-  background-image: url('./burger-black.svg');
-}
-
-[data-theme='3'] .burgerMenuIcon {
-  background-image: url('./burger-white.svg');
+.burgerMenuIcon svg {
+  fill: currentColor;
+  width: 100%;
+  height: 100%;
 }
 
 .burgerMenuIcon:hover {

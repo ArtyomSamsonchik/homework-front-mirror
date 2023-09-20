@@ -3,6 +3,7 @@ import { NavLink, NavLinkProps } from 'react-router-dom'
 import s from './Sidebar.module.css'
 import { AppPathValues } from '../Pages'
 import parsePathName from '../../../helpers/parsePathName'
+import { ReactComponent as CloseIcon } from './close-icon.svg'
 
 type PropsType = {
   open: boolean
@@ -38,7 +39,9 @@ export const Sidebar: FC<PropsType> = ({ open, handleClose }) => {
       )}
 
       <aside className={`${open ? s.open : s.sidebar}`}>
-        <button id={'hw5-menu-close'} className={s.close} onClick={handleClose} />
+        <button id={'hw5-menu-close'} className={s.close} onClick={handleClose}>
+          <CloseIcon />
+        </button>
         <nav id={'hw5-menu'} className={s.nav}>
           {links.map((link) => {
             const slicedLink = link.slice(1) // remove '/' from string beginning. Required for id
