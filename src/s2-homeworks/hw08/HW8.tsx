@@ -65,7 +65,7 @@ const HW8 = () => {
               onClick={handleSortClick('up')}
               xType={getButtonType('up')}
             >
-              Sort <span className={s.buttonLabel}>up</span>
+              Sort&nbsp;<span className={s.buttonLabel}>up</span>
               <ArrowUp fill="currentColor" />
             </SuperButton>
             <SuperButton
@@ -74,7 +74,7 @@ const HW8 = () => {
               onClick={handleSortClick('down')}
               xType={getButtonType('down')}
             >
-              Sort <span className={s.buttonLabel}>down</span>
+              Sort&nbsp;<span className={s.buttonLabel}>down</span>
               <ArrowDown fill="currentColor" />
             </SuperButton>
             <SuperButton
@@ -83,7 +83,7 @@ const HW8 = () => {
               onClick={check18}
               xType={getButtonType('18')}
             >
-              <span className={s.buttonLabel}>Check</span> 18+
+              <span className={s.buttonLabel}>Check</span>&nbsp;18+
             </SuperButton>
           </div>
 

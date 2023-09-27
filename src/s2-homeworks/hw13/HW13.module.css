@@ -1,22 +1,112 @@
+.hwContainer {
+  composes: container from '../../common/Common.module.css';
+  margin-bottom: 30px;
+}
+
 .buttonsContainer {
+  --btn-max-width: max-content;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(6.5rem, var(--btn-max-width)));
+  grid-auto-rows: 1fr;
+  gap: 24px;
+  margin-bottom: 30px;
 }
 
 .responseContainer {
+  position: relative;
+  margin-inline: auto;
+  display: flex;
+  align-items: center;
+  max-width: 980px;
 }
 
 .imageContainer {
+  display: flex;
+  justify-content: center;
+  padding-inline: 24px;
+  height: 250px;
+  flex-grow: 1;
 }
 
 .image {
+  height: 100%;
+  max-width: 100%;
+  aspect-ratio: 4 / 3;
 }
 
 .textContainer {
+  flex: 0 0 50%;
 }
 
 .code {
+  font-size: 1.875rem;
+  font-weight: 500;
+  margin-bottom: 0.4em;
 }
 
 .text {
+  margin-bottom: 0.5em;
 }
+
 .info {
+}
+
+.backdropContainer {
+  position: absolute;
+  inset: 0;
+  animation: 300ms var(--ease-in-out) appear;
+}
+
+.backdrop {
+  position: absolute;
+  inset: 0;
+  background-color: var(--bg-primary);
+  opacity: 0.5;
+}
+
+.loader {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+}
+
+@media (width <= 600px) {
+  .buttonsContainer {
+    --btn-max-width: 1fr;
+    gap: 16px;
+  }
+
+  .button {
+    padding: 0.625em;
+  }
+
+  .responseContainer {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 24px;
+  }
+
+  .imageContainer {
+    height: auto;
+    max-height: 250px;
+    aspect-ratio: 16 / 9;
+  }
+
+  .image {
+    aspect-ratio: auto;
+  }
+
+  .textContainer {
+    text-align: center;
+  }
+}
+
+@keyframes appear {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }

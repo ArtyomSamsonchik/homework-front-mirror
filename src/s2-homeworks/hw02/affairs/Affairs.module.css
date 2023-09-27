@@ -1,6 +1,7 @@
 .buttonContainer {
+  --btn-min-width: 5.5rem;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(5.5rem, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(var(--btn-min-width), 1fr));
   gap: 18px 24px;
   margin-bottom: 32px;
   max-width: 450px;
@@ -61,4 +62,10 @@
   gap: 24px 16px;
   margin-bottom: 72px;
   max-width: 450px;
+}
+
+@media (width <= 400px) {
+  .buttonContainer {
+    --btn-min-width: 6.5rem;
+  }
 }
