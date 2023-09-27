@@ -1,9 +1,13 @@
 {
   "files": {
-    "main.css": "/homework-front-mirror/static/css/main.974dd022.css",
-    "main.js": "/homework-front-mirror/static/js/main.9358adf0.js",
+    "main.css": "/homework-front-mirror/static/css/main.09df3141.css",
+    "main.js": "/homework-front-mirror/static/js/main.0ecb6808.js",
     "static/js/787.58d8fa8a.chunk.js": "/homework-front-mirror/static/js/787.58d8fa8a.chunk.js",
     "static/media/avatar.png": "/homework-front-mirror/static/media/avatar.d947cb9d0d13765666b6.png",
+    "static/media/200.svg": "/homework-front-mirror/static/media/200.2b4de1542921864a6ecb8c3301ea4670.svg",
+    "static/media/error.svg": "/homework-front-mirror/static/media/error.9a99652a785b87f2f448e23e5da3045d.svg",
+    "static/media/500.svg": "/homework-front-mirror/static/media/500.65355d1617c6a93fc93572680052f0b7.svg",
+    "static/media/400.svg": "/homework-front-mirror/static/media/400.4e46e304dcfdcae89fcfb902d8863816.svg",
     "static/media/404.svg": "/homework-front-mirror/static/media/404.dae7af4892f2a3abe805a174178919f2.svg",
     "static/media/close-icon.svg": "/homework-front-mirror/static/media/close-icon.c6a2d3d432fa086291a251403718ca3b.svg",
     "static/media/radio-box-checked-black.svg": "/homework-front-mirror/static/media/radio-box-checked-black.e27cf920bda4050d72d6.svg",
@@ -19,12 +23,12 @@
     "static/media/burger-icon.svg": "/homework-front-mirror/static/media/burger-icon.9e8577fb5550211e4ac7fa4dc6095fe4.svg",
     "static/media/arrow-down.svg": "/homework-front-mirror/static/media/arrow-down.4fa8e0c1f62ba2ffb35e7ac03053bb2f.svg",
     "static/media/arrow-up.svg": "/homework-front-mirror/static/media/arrow-up.273735cea3fdff129e601a2b8e95c667.svg",
-    "main.974dd022.css.map": "/homework-front-mirror/static/css/main.974dd022.css.map",
-    "main.9358adf0.js.map": "/homework-front-mirror/static/js/main.9358adf0.js.map",
+    "main.09df3141.css.map": "/homework-front-mirror/static/css/main.09df3141.css.map",
+    "main.0ecb6808.js.map": "/homework-front-mirror/static/js/main.0ecb6808.js.map",
     "787.58d8fa8a.chunk.js.map": "/homework-front-mirror/static/js/787.58d8fa8a.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.974dd022.css",
-    "static/js/main.9358adf0.js"
+    "static/css/main.09df3141.css",
+    "static/js/main.0ecb6808.js"
   ]
 }
