@@ -1,5 +1,27 @@
-.tech {
+.hwContainer {
+  composes: container from '../../common/Common.module.css';
+  margin-bottom: 36px;
+  min-height: 300px;
+}
+
+.wrapper {
+  width: min(372px, 100%);
 }
 
 .loading {
+  margin-top: 0.5em;
+  padding-inline: 0.5em;
+  font-size: 0.875rem;
+  color: var(--grey-200);
+  text-align: right;
+}
+
+.techsList {
+  padding-inline: 0.5em;
+}
+
+.tech {
+  list-style: none;
+  line-height: 1.5;
+  font-family: Roboto, sans-serif;
 }

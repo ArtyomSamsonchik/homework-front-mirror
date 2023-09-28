@@ -9,7 +9,7 @@ import React, {
 import s from './SuperInputText.module.css'
 
 // тип пропсов обычного инпута
-type SuperInputTextPropsType = Omit<ComponentPropsWithoutRef<'input'>, 'type'> & {
+export type SuperInputTextPropsType = Omit<ComponentPropsWithoutRef<'input'>, 'type'> & {
   // и + ещё пропсы которых нет в стандартном инпуте
   onChangeText?: (value: string) => void
   onEnter?: () => void

@@ -14,51 +14,68 @@ import { useSearchParams } from 'react-router-dom'
  * 5 - добавить HW14 в HW5/pages/JuniorPlus
  * */
 
-const getTechs = (find: string) => {
-  return axios
-    .get<{ techs: string[] }>('https://samurai.it-incubator.io/api/3.0/homework/test2', {
-      params: { find },
-    })
-    .catch((e) => {
-      alert(e.response?.data?.errorText || e.message)
-    })
+type Response = {
+  techs: string[]
+  errorText: string
+}
+
+const getTechs = async (find: string): Promise<Response | void> => {
+  try {
+    const { data } = await axios.get<Response>(
+      'https://samurai.it-incubator.io/api/3.0/homework/test2',
+      { params: { find } },
+    )
+
+    return data
+  } catch (e) {
+    let message: string = 'Some network error occurred! Retry later.'
+
+    if (axios.isAxiosError(e)) {
+      const data = e.response?.data as Response
+      message = data.errorText
+    } else if (e instanceof Error) {
+      message = e.message
+    }
+
+    alert(message)
+  }
 }
 
 const HW14 = () => {
-  const [find, setFind] = useState('')
-  const [isLoading, setLoading] = useState(false)
   const [searchParams, setSearchParams] = useSearchParams()
+  const [isLoading, setLoading] = useState(false)
   const [techs, setTechs] = useState<string[]>([])
 
-  const sendQuery = (value: string) => {
+  const find = searchParams.get('find') ?? ''
+
+  const sendQuery = async (value: string) => {
     setLoading(true)
-    getTechs(value).then((res) => {
-      // делает студент
-      // сохранить пришедшие данные
-      //
-    })
+    // делает студент
+    // сохранить пришедшие данные
+    const data = await getTechs(value)
+
+    if (data) setTechs(data.techs)
+
+    setLoading(false)
   }
 
   const onChangeText = (value: string) => {
-    setFind(value)
     // делает студент
-
     // добавить/заменить значение в квери урла
-    // setSearchParams(
-
-    //
+    setSearchParams((params) => {
+      params.set('find', value)
+      return params
+    })
   }
 
   useEffect(() => {
-    const params = Object.fromEntries(searchParams)
-    sendQuery(params.find || '')
-    setFind(params.find || '')
+    sendQuery(find)
   }, [])
 
   const mappedTechs = techs.map((t) => (
-    <div key={t} id={'hw14-tech-' + t} className={s.tech}>
+    <li key={t} id={'hw14-tech-' + t} className={s.tech}>
       {t}
-    </div>
+    </li>
   ))
 
   return (
@@ -66,21 +83,25 @@ const HW14 = () => {
       <div className={commonS.headerContainer}>
         <h3 className={commonS.hwHeader}>Homework #14</h3>
       </div>
+      <hr />
 
-      <div className={commonS.container}>
-        <SuperDebouncedInput
-          id={'hw14-super-debounced-input'}
-          value={find}
-          onChangeText={onChangeText}
-          onDebouncedChange={sendQuery}
-        />
-
-        <div id={'hw14-loading'} className={s.loading}>
-          {isLoading ? '...ищем' : <br />}
+      <div className={s.hwContainer}>
+        <div className={s.wrapper}>
+          <SuperDebouncedInput
+            id={'hw14-super-debounced-input'}
+            value={find}
+            disabled={isLoading}
+            onChangeText={onChangeText}
+            onDebouncedChange={sendQuery}
+          />
+          <div id={'hw14-loading'} className={s.loading}>
+            {isLoading ? '...ищем' : <br />}
+          </div>
         </div>
 
-        {mappedTechs}
+        <ul className={s.techsList}>{!isLoading && mappedTechs}</ul>
       </div>
+      <hr />
     </div>
   )
 }

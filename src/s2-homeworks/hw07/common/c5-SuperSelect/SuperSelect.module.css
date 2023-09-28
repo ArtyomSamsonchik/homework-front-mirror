@@ -41,7 +41,7 @@
 }
 
 [data-theme='3'] .select {
-  border-color: var(--accent);
+  border-color: var(--accent-dark);
 }
 
 .select:focus {

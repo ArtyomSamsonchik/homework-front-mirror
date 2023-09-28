@@ -97,9 +97,9 @@ code {
 
   --bg-secondary: var(--grey-350);
 
-  --accent: var(--grey-400);
+  --accent: var(--grey-600);
   --accent-light: var(--grey-700);
-  --accent-dark: var(--grey-600);
+  --accent-dark: var(--grey-400);
 
   color: black;
   background-color: var(--bg-primary);
