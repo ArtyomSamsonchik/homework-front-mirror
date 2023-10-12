@@ -1,24 +1,43 @@
-.tech {
-  width: 50vw;
+.hwContainer {
+  composes: container from '../../common/Common.module.css';
+  margin-bottom: 36px;
 }
 
-.developer {
+.contentWrapper {
+  position: relative;
 }
 
-.techHeader {
-  width: 50vw;
+.paginationContainer {
+  margin-bottom: 36px;
+  width: fit-content;
 }
 
-.developerHeader {
+.tableWrapper {
+  width: min(100%, 600px);
+  overflow: auto;
+  scrollbar-width: thin;
 }
 
-.row {
-  display: flex;
+.table {
+  min-width: 100%;
 }
 
-.rowHeader {
-  display: flex;
+.tableHead {
+  text-align: left;
 }
 
-.loading {
+.tCell {
+  white-space: nowrap;
+  width: 50%;
+}
+
+.sort {
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.sort svg {
+  height: 1.2rem;
+  width: 0.75em;
 }

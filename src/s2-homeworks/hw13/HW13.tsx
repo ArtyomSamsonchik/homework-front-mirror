@@ -5,7 +5,7 @@ import s from './HW13.module.css'
 import SuperButton from '../hw04/common/c2-SuperButton/SuperButton'
 import axios from 'axios'
 import { success200, error500, error400, errorUnknown } from './images'
-import { BackdropLoader } from './BackdropLoader'
+import { BackdropLoader } from '../hw10/common/BackdropLoader/BackdropLoader'
 
 type Response = {
   errorText: string

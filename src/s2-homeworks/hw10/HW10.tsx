@@ -6,7 +6,7 @@ import SuperButton from '../hw04/common/c2-SuperButton/SuperButton'
 import commonS from '../../common/Common.module.css'
 import s from './HW10.module.css'
 
-import { Loader } from './Loader'
+import { Loader } from './common/Loader/Loader'
 
 /*
  * 1 - в файле loadingReducer.ts дописать типы и логику

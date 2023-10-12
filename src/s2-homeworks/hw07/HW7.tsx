@@ -31,6 +31,7 @@ const HW7 = () => {
       <div className={s.hwContainer}>
         <SuperSelect
           id={'hw7-super-select'}
+          className={s.select}
           options={arr}
           value={value}
           onChangeOption={(value) => setValue(+value)}

@@ -28,7 +28,7 @@ const getTechs = async (find: string): Promise<Response | void> => {
 
     return data
   } catch (e) {
-    let message: string = 'Some network error occurred! Retry later.'
+    let message = 'Some network error occurred! Retry later.'
 
     if (axios.isAxiosError(e)) {
       const data = e.response?.data as Response
@@ -45,8 +45,11 @@ const HW14 = () => {
   const [searchParams, setSearchParams] = useSearchParams()
   const [isLoading, setLoading] = useState(false)
   const [techs, setTechs] = useState<string[]>([])
+  // Use local state for input instead of direct mutating of search params
+  // to avoid unnecessary renders on inputs value change
+  const [text, setText] = useState('')
 
-  const find = searchParams.get('find') ?? ''
+  const find = searchParams.get('find') ?? text
 
   const sendQuery = async (value: string) => {
     setLoading(true)
@@ -59,13 +62,13 @@ const HW14 = () => {
     setLoading(false)
   }
 
-  const onChangeText = (value: string) => {
-    // делает студент
-    // добавить/заменить значение в квери урла
+  const handleDebouncedChange = (value: string) => {
     setSearchParams((params) => {
       params.set('find', value)
       return params
     })
+
+    sendQuery(value)
   }
 
   useEffect(() => {
@@ -89,10 +92,10 @@ const HW14 = () => {
         <div className={s.wrapper}>
           <SuperDebouncedInput
             id={'hw14-super-debounced-input'}
-            value={find}
+            value={text}
             disabled={isLoading}
-            onChangeText={onChangeText}
-            onDebouncedChange={sendQuery}
+            onChangeText={setText}
+            onDebouncedChange={handleDebouncedChange}
           />
           <div id={'hw14-loading'} className={s.loading}>
             {isLoading ? '...ищем' : <br />}

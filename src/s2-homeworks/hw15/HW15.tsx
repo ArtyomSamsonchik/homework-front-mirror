@@ -6,6 +6,14 @@ import axios from 'axios'
 import SuperPagination from './common/c9-SuperPagination/SuperPagination'
 import { useSearchParams } from 'react-router-dom'
 import SuperSort from './common/c10-SuperSort/SuperSort'
+import {
+  SuperTable,
+  SuperTableCell,
+  SuperTableHead,
+  SuperTableHeadCell,
+  SuperTableRow,
+} from './common/SuperTable/SuperTable'
+import { BackdropLoader } from '../hw10/common/BackdropLoader/BackdropLoader'
 
 /*
  * 1 - дописать SuperPagination
@@ -15,6 +23,12 @@ import SuperSort from './common/c10-SuperSort/SuperSort'
  * 4 - сделать стили в соответствии с дизайном
  * 5 - добавить HW15 в HW5/pages/JuniorPlus
  * */
+
+type Response = {
+  techs: TechType[]
+  totalCount: number
+  errorText: string
+}
 
 type TechType = {
   id: number
@@ -28,106 +42,147 @@ type ParamsType = {
   count: number
 }
 
-const getTechs = (params: ParamsType) => {
-  return axios
-    .get<{ techs: TechType[]; totalCount: number }>(
+const getTechs = async (params: ParamsType): Promise<Response | undefined> => {
+  try {
+    const { data } = await axios.get<Response>(
       'https://samurai.it-incubator.io/api/3.0/homework/test3',
       { params },
     )
-    .catch((e) => {
-      alert(e.response?.data?.errorText || e.message)
-    })
+
+    return data
+  } catch (e) {
+    let message = 'Some network error occurred! Retry later.'
+
+    if (axios.isAxiosError(e)) {
+      const data = e.response?.data as Response
+      message = data.errorText
+    } else if (e instanceof Error) {
+      message = e.message
+    }
+
+    alert(message)
+  }
 }
 
 const HW15 = () => {
-  const [sort, setSort] = useState('')
-  const [page, setPage] = useState(1)
-  const [count, setCount] = useState(4)
-  const [idLoading, setLoading] = useState(false)
+  const [isLoading, setLoading] = useState(false)
   const [totalCount, setTotalCount] = useState(100)
   const [searchParams, setSearchParams] = useSearchParams()
   const [techs, setTechs] = useState<TechType[]>([])
 
-  const sendQuery = (params: any) => {
+  const sort = searchParams.get('sort') ?? ''
+  const page = searchParams.get('page') ?? '1'
+  const count = searchParams.get('count') ?? '4'
+
+  const sendQuery = async (params: ParamsType) => {
+    // делает студент
+    // сохранить пришедшие данные
     setLoading(true)
-    getTechs(params).then((res) => {
-      // делает студент
-      // сохранить пришедшие данные
-      //
-    })
+    const data = await getTechs(params)
+
+    if (data) {
+      setTechs(data.techs)
+      setTotalCount(data.totalCount)
+    }
+    setLoading(false)
   }
 
   const onChangePagination = (newPage: number, newCount: number) => {
     // делает студент
-    // setPage(
-    // setCount(
-    // sendQuery(
-    // setSearchParams(
-    //
+    setSearchParams((params) => {
+      params.set('page', newPage.toString())
+      params.set('count', newCount.toString())
+
+      return params
+    })
+
+    sendQuery(searchParams as unknown as ParamsType)
   }
 
   const onChangeSort = (newSort: string) => {
     // делает студент
-    // setSort(
     // setPage(1) // при сортировке сбрасывать на 1 страницу
-    // sendQuery(
-    // setSearchParams(
-    //
+    setSearchParams((params) => {
+      params.set('page', '1')
+      params.set('sort', newSort)
+
+      return params
+    })
+
+    sendQuery(searchParams as unknown as ParamsType)
   }
 
   useEffect(() => {
-    const params = Object.fromEntries(searchParams)
-    sendQuery({ page: params.page, count: params.count })
-    setPage(+params.page || 1)
-    setCount(+params.count || 4)
+    sendQuery({ page: +page, count: +count, sort })
   }, [])
 
   const mappedTechs = techs.map((t) => (
-    <div key={t.id} className={s.row}>
-      <div id={'hw15-tech-' + t.id} className={s.tech}>
+    <SuperTableRow key={t.id}>
+      <SuperTableCell id={'hw15-tech-' + t.id} className={s.tCell}>
         {t.tech}
-      </div>
-
-      <div id={'hw15-developer-' + t.id} className={s.developer}>
+      </SuperTableCell>
+      <SuperTableCell id={'hw15-developer-' + t.id} className={s.tCell}>
         {t.developer}
-      </div>
-    </div>
+      </SuperTableCell>
+    </SuperTableRow>
   ))
 
   return (
-    <div id={'hw15'}>
+    <div id="hw15">
       <div className={commonS.headerContainer}>
         <h3 className={commonS.hwHeader}>Homework #15</h3>
       </div>
+      <hr />
 
-      <div className={commonS.container}>
-        {idLoading && (
-          <div id={'hw15-loading'} className={s.loading}>
-            Loading...
-          </div>
-        )}
-
-        <SuperPagination
-          page={page}
-          itemsCountForPage={count}
-          totalCount={totalCount}
-          onChange={onChangePagination}
-        />
-
-        <div className={s.rowHeader}>
-          <div className={s.techHeader}>
-            tech
-            <SuperSort sort={sort} value={'tech'} onChange={onChangeSort} />
+      <div className={s.hwContainer}>
+        <div className={s.contentWrapper}>
+          {isLoading && (
+            <div id="hw15-loading">
+              <BackdropLoader />
+            </div>
+          )}
+          <div className={s.paginationContainer}>
+            <SuperPagination
+              page={+page}
+              itemsCountForPage={+count}
+              totalCount={totalCount}
+              onChange={onChangePagination}
+            />
           </div>
 
-          <div className={s.developerHeader}>
-            developer
-            <SuperSort sort={sort} value={'developer'} onChange={onChangeSort} />
+          <div className={s.tableWrapper}>
+            <SuperTable className={s.table}>
+              <SuperTableHead className={s.tableHead}>
+                <tr>
+                  <SuperTableHeadCell>
+                    <SuperSort
+                      sort={sort}
+                      className={s.sort}
+                      value="tech"
+                      onSortChange={onChangeSort}
+                    >
+                      tech
+                    </SuperSort>
+                  </SuperTableHeadCell>
+                  <SuperTableHeadCell>
+                    <SuperSort
+                      sort={sort}
+                      className={s.sort}
+                      value="developer"
+                      onSortChange={onChangeSort}
+                    >
+                      developer
+                    </SuperSort>
+                  </SuperTableHeadCell>
+                </tr>
+              </SuperTableHead>
+
+              <tbody>{mappedTechs}</tbody>
+            </SuperTable>
           </div>
         </div>
-
-        {mappedTechs}
       </div>
+      <hr />
     </div>
   )
 }

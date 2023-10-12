@@ -5,3 +5,7 @@
   gap: 36px 128px;
   margin-bottom: 200px;
 }
+
+.select {
+  min-width: 165px;
+}

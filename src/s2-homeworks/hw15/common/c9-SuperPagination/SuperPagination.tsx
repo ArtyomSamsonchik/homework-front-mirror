@@ -1,6 +1,7 @@
-import React from 'react'
+import React, { ChangeEvent } from 'react'
 import SuperSelect from '../../../hw07/common/c5-SuperSelect/SuperSelect'
-import { Pagination } from '@mui/material'
+import Pagination from '@mui/material/Pagination'
+import { paginationItemClasses as pItemClasses } from '@mui/material/PaginationItem'
 import s from './SuperPagination.module.css'
 
 export type SuperPaginationPropsType = {
@@ -11,6 +12,7 @@ export type SuperPaginationPropsType = {
   onChange: (page: number, count: number) => void
 }
 
+// TODO: add Forward ref for SuperPagination element if it's possible
 const SuperPagination: React.FC<SuperPaginationPropsType> = ({
   page,
   itemsCountForPage,
@@ -18,46 +20,65 @@ const SuperPagination: React.FC<SuperPaginationPropsType> = ({
   onChange,
   id = 'hw15',
 }) => {
-  const lastPage = 10 // пишет студент // вычислить количество страниц
-
-  const onChangeCallback = (event: any, page: number) => {
+  const handlePageChange = (e: ChangeEvent<unknown>, page: number) => {
     // пишет студент
+    onChange(page, itemsCountForPage)
   }
 
-  const onChangeSelect = (event: any) => {
+  const handleSelectChange = (e: ChangeEvent<HTMLSelectElement>) => {
     // пишет студент
+    onChange(page, +e.currentTarget.value)
   }
+
+  const pagesTotalCount = Math.ceil(totalCount / itemsCountForPage)
 
   return (
     <div className={s.pagination}>
       <Pagination
         id={id + '-pagination'}
-        sx={
-          {
-            // стили для Pagination // пишет студент
-          }
-        }
+        shape="rounded"
+        sx={{
+          [`& .${pItemClasses.text}`]: {
+            margin: '0 4px',
+            minWidth: '2rem',
+            height: '2rem',
+            borderRadius: 'var(--border-radius-sm)',
+            fontSize: '1rem',
+            color: 'inherit',
+
+            [`&.${pItemClasses.selected}`]: {
+              backgroundColor: 'var(--blue-400)',
+              color: 'var(--bg-primary)',
+              [`&:hover`]: {
+                backgroundColor: 'var(--blue-500)',
+              },
+            },
+          },
+          [`& .${pItemClasses.ellipsis}`]: {
+            height: 'auto',
+          },
+        }}
         page={page}
-        count={lastPage}
-        onChange={onChangeCallback}
+        count={pagesTotalCount}
+        onChange={handlePageChange}
         hideNextButton
         hidePrevButton
       />
 
-      <span className={s.text1}>показать</span>
-
-      <SuperSelect
-        id={id + '-pagination-select'}
-        value={itemsCountForPage}
-        options={[
-          { value: 4, label: '4' },
-          { value: 7, label: '7' },
-          { value: 10, label: '10' },
-        ]}
-        onChange={onChangeSelect}
-      />
-
-      <span className={s.text2}>строк в таблице</span>
+      <div className={s.selectContainer}>
+        <span className={s.text1}>показать</span>
+        <SuperSelect
+          id={id + '-pagination-select'}
+          value={itemsCountForPage}
+          options={[
+            { value: 4, label: '4' },
+            { value: 7, label: '7' },
+            { value: 10, label: '10' },
+          ]}
+          onChange={handleSelectChange}
+        />
+        <span className={s.text2}>строк в таблице</span>
+      </div>
     </div>
   )
 }

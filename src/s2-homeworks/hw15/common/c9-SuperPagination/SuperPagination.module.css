@@ -1,9 +1,23 @@
 .pagination {
   display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 20px 12px;
+}
+
+.selectContainer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
 }
 
 .text1 {
+  font-family: Roboto, sans-serif;
+  text-transform: capitalize;
 }
 
 .text2 {
+  font-family: Roboto, sans-serif;
 }

@@ -1,7 +1,6 @@
 .wrapper {
   position: relative;
   display: inline-block;
-  min-width: 165px;
   height: fit-content;
   font-size: 1rem;
 }
@@ -31,6 +30,7 @@
   padding: 0.5em;
   padding-right: 2.4em;
   width: 100%;
+  min-width: min-content;
   background-color: var(--bg-primary-light);
   border: 2px solid var(--accent-dark);
   border-radius: var(--border-radius-sm);
@@ -39,6 +39,8 @@
   outline: none;
   cursor: pointer;
 }
+
+/*TODO: add disabled styles for select and ::after*/
 
 [data-theme='3'] .select {
   border-color: var(--accent-dark);

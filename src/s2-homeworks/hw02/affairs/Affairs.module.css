@@ -1,5 +1,5 @@
 .buttonContainer {
-  --btn-min-width: 5.5rem;
+  --btn-min-width: 5.5em;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(var(--btn-min-width), 1fr));
   gap: 18px 24px;

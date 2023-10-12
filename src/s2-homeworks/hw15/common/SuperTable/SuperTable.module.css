@@ -1,0 +1,25 @@
+.table {
+  table-layout: fixed;
+  border-collapse: collapse;
+  font-family: Roboto, sans-serif;
+  font-size: 1rem;
+}
+
+.thead {
+  background-color: var(--accent-light);
+}
+
+.tbodyRow:not(:last-of-type) {
+  border-bottom: 1px solid var(--accent-dark);
+}
+
+.cell {
+  padding: 1em 1.125em;
+  letter-spacing: 0.015625em; /*  0.25px / 16px */
+}
+
+.headCell {
+  composes: cell;
+  padding-block: 0.75em;
+  font-weight: 600;
+}

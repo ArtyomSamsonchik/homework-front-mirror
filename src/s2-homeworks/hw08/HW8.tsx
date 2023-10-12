@@ -7,6 +7,11 @@ import { ReactComponent as ArrowDown } from './common/arrow-down.svg'
 
 import SuperButton from '../hw04/common/c2-SuperButton/SuperButton'
 import User from './User'
+import {
+  SuperTable,
+  SuperTableHead,
+  SuperTableHeadCell,
+} from '../hw15/common/SuperTable/SuperTable'
 
 /*
  * 1 - дописать типы и логику (сортировка по имени, фильтрация по совершеннолетию) homeWorkReducer, проверить тестом
@@ -87,16 +92,16 @@ const HW8 = () => {
             </SuperButton>
           </div>
 
-          <table id="hw8-users" className={s.users}>
-            <thead className={s.thead}>
+          <SuperTable id="hw8-users" className={s.users}>
+            <SuperTableHead>
               <tr>
-                <td className={s.headCell}>Name</td>
-                <td className={s.headCell}>Age</td>
+                <SuperTableHeadCell className={s.headCell}>Name</SuperTableHeadCell>
+                <SuperTableHeadCell className={s.headCell}>Age</SuperTableHeadCell>
               </tr>
-            </thead>
+            </SuperTableHead>
 
             <tbody>{finalPeople}</tbody>
-          </table>
+          </SuperTable>
         </div>
       </div>
       <hr />
