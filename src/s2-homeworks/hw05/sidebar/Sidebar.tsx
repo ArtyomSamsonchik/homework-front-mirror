@@ -13,6 +13,11 @@ type PropsType = {
 const links: AppPathValues[] = ['pre-junior', 'junior', 'junior-plus']
 
 export const Sidebar: FC<PropsType> = ({ open, handleClose }) => {
+  const handleNavigate = () => {
+    handleClose()
+    window.scrollTo({ top: 0 })
+  }
+
   const getLinkClassName: NavLinkProps['className'] = ({ isActive }) =>
     isActive ? s.active : s.link
 
@@ -34,7 +39,7 @@ export const Sidebar: FC<PropsType> = ({ open, handleClose }) => {
                 key={id}
                 id={id}
                 to={`../${link}`}
-                onClick={handleClose}
+                onClick={handleNavigate}
                 relative={'path'}
                 className={getLinkClassName} // делает студент
               >
