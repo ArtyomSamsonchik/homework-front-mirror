@@ -1,8 +1,8 @@
 import { useEffect } from 'react'
 
-const useAppTheme = (themeId: string) => {
+const useAppTheme = (themeId: string, themeMap?: Record<string, string>) => {
   useEffect(() => {
-    document.documentElement.dataset.theme = themeId
+    document.documentElement.dataset.theme = themeMap?.[themeId] ?? themeId
   }, [themeId])
 }
 

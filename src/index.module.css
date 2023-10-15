@@ -68,11 +68,11 @@ code {
   }
 }
 
-:root[data-theme='2'] {
+:root[data-theme='light-blue'] {
   background-color: var(--light-blue-100);
 }
 
-:root[data-theme='3'] {
+:root[data-theme='dark'] {
   --bg-primary: var(--dark-blue-400);
   --bg-primary-light: var(--dark-blue-300);
 

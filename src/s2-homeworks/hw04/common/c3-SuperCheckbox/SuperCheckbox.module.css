@@ -15,11 +15,11 @@
   cursor: pointer;
 }
 
-[data-theme='1'] .label > input:checked {
+[data-theme='light'] .label > input:checked {
   background-image: url('./checked-blue.svg');
 }
 
-[data-theme='3'] .label > input:checked {
+[data-theme='dark'] .label > input:checked {
   background-image: url('./checked-light-blue.svg');
 }
 

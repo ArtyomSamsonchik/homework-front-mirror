@@ -16,11 +16,11 @@
   pointer-events: none;
 }
 
-[data-theme='1'] .wrapper::after {
+[data-theme='light'] .wrapper::after {
   background-image: url('./chevron-down-black.svg');
 }
 
-[data-theme='3'] .wrapper::after {
+[data-theme='dark'] .wrapper::after {
   background-image: url('./chevron-down-white.svg');
 }
 
@@ -42,7 +42,7 @@
 
 /*TODO: add disabled styles for select and ::after*/
 
-[data-theme='3'] .select {
+[data-theme='dark'] .select {
   border-color: var(--accent-dark);
 }
 

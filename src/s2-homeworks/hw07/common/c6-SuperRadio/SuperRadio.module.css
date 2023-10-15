@@ -33,19 +33,19 @@
   background: center / contain no-repeat;
 }
 
-[data-theme='1'] .radio::before {
+[data-theme='light'] .radio::before {
   background-image: url('./radio-box-blank-black.svg');
 }
 
-[data-theme='3'] .radio::before {
+[data-theme='dark'] .radio::before {
   background-image: url('./radio-box-blank-white.svg');
 }
 
-[data-theme='1'] .radio:checked::before {
+[data-theme='light'] .radio:checked::before {
   background-image: url('./radio-box-checked-black.svg');
 }
 
-[data-theme='3'] .radio:checked::before {
+[data-theme='dark'] .radio:checked::before {
   background-image: url('./radio-box-checked-white.svg');
 }
 
