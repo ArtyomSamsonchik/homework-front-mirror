@@ -21,12 +21,12 @@
   transition: translate 225ms var(--ease-out);
 }
 
-.background {
+.background :global {
   min-height: 40px;
   inset: 0;
   z-index: 1100;
   background-color: hsla(0, 0%, 0%, 0.4);
-  transition: opacity 225ms var(--ease-in-out);
+  animation: 225ms var(--ease-in-out) fade-in;
 }
 
 [data-fixed-sidebar='true'] .background {

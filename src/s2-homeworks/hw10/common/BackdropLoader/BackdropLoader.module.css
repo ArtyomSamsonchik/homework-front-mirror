@@ -1,7 +1,7 @@
-.backdropContainer {
+.backdropContainer :global {
   position: absolute;
   inset: 0;
-  animation: 500ms var(--ease-in-out) appear;
+  animation: 500ms var(--ease-in-out) fade-in;
   z-index: 100;
 }
 
@@ -17,13 +17,4 @@
   top: 50%;
   left: 50%;
   translate: -50% -50%;
-}
-
-@keyframes appear {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
 }

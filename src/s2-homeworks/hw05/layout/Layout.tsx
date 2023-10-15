@@ -11,6 +11,8 @@ export const Layout: FC = () => {
   useEffect(() => {
     if (flag === 'fixed-sidebar') {
       document.body.dataset.fixedSidebar = 'true'
+    } else {
+      delete document.body.dataset.fixedSidebar
     }
   }, [flag])
 
