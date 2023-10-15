@@ -1,17 +1,23 @@
-import React, { useState, FocusEvent, MouseEvent } from 'react'
+import React, {
+  useState,
+  FocusEvent,
+  MouseEvent,
+  ComponentPropsWithoutRef,
+  ComponentProps,
+} from 'react'
 import s from './SuperEditableSpan.module.css'
 import SuperInputText from '../../../hw04/common/c1-SuperInputText/SuperInputText'
 import { ReactComponent as EditIcon } from './editIcon.svg'
 
 // тип пропсов обычного инпута
-type DefaultInputPropsType = JSX.IntrinsicElements['input']
+type DefaultInputPropsType = ComponentPropsWithoutRef<'input'>
 
 // тип пропсов обычного спана
-type DefaultSpanPropsType = JSX.IntrinsicElements['span']
+type DefaultSpanPropsType = ComponentProps<'span'>
 
 // здесь мы говорим что у нашего инпута будут такие же пропсы как у обычного инпута, кроме type
 // (чтоб не писать value: string, onChange: ...; они уже все описаны в DefaultInputPropsType)
-type SuperEditableSpanType = Omit<DefaultInputPropsType, 'type' | 'ref'> & {
+type SuperEditableSpanType = Omit<DefaultInputPropsType, 'type'> & {
   // и + ещё пропсы которых нет в стандартном инпуте
   onChangeText?: (value: string) => void
   onEnter?: () => void

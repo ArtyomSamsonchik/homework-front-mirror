@@ -1,32 +1,43 @@
-import { ComponentPropsWithoutRef, FC } from 'react'
+import { ComponentPropsWithoutRef, forwardRef } from 'react'
 import s from './SuperTable.module.css'
 
-export const SuperTable: FC<ComponentPropsWithoutRef<'table'>> = ({ className, ...props }) => {
-  const finalClassName = `${s.table} ${className ?? ''}`
+export const SuperTable = forwardRef<HTMLTableElement, ComponentPropsWithoutRef<'table'>>(
+  ({ className, ...props }, ref) => {
+    const finalClassName = `${s.table} ${className ?? ''}`
 
-  return <table className={finalClassName} {...props} />
-}
+    return <table ref={ref} className={finalClassName} {...props} />
+  },
+)
 
-export const SuperTableHead: FC<ComponentPropsWithoutRef<'thead'>> = ({ className, ...props }) => {
+export const SuperTableHead = forwardRef<
+  HTMLTableSectionElement,
+  ComponentPropsWithoutRef<'thead'>
+>(({ className, ...props }, ref) => {
   const finalClassName = `${s.thead} ${className ?? ''}`
 
-  return <thead className={finalClassName} {...props} />
-}
+  return <thead ref={ref} className={finalClassName} {...props} />
+})
 
-export const SuperTableHeadCell: FC<ComponentPropsWithoutRef<'th'>> = ({ className, ...props }) => {
-  const finalClassName = `${s.headCell} ${className ?? ''}`
+export const SuperTableHeadCell = forwardRef<HTMLTableCellElement, ComponentPropsWithoutRef<'th'>>(
+  ({ className, ...props }, ref) => {
+    const finalClassName = `${s.headCell} ${className ?? ''}`
 
-  return <th className={finalClassName} {...props} />
-}
+    return <th ref={ref} className={finalClassName} {...props} />
+  },
+)
 
-export const SuperTableRow: FC<ComponentPropsWithoutRef<'tr'>> = ({ className, ...props }) => {
-  const finalClassName = `${s.tbodyRow} ${className ?? ''}`
+export const SuperTableRow = forwardRef<HTMLTableRowElement, ComponentPropsWithoutRef<'tr'>>(
+  ({ className, ...props }, ref) => {
+    const finalClassName = `${s.tbodyRow} ${className ?? ''}`
 
-  return <tr className={finalClassName} {...props} />
-}
+    return <tr ref={ref} className={finalClassName} {...props} />
+  },
+)
 
-export const SuperTableCell: FC<ComponentPropsWithoutRef<'td'>> = ({ className, ...props }) => {
-  const finalClassName = `${s.cell} ${className ?? ''}`
+export const SuperTableCell = forwardRef<HTMLTableCellElement, ComponentPropsWithoutRef<'td'>>(
+  ({ className, ...props }, ref) => {
+    const finalClassName = `${s.cell} ${className ?? ''}`
 
-  return <td className={finalClassName} {...props} />
-}
+    return <td ref={ref} className={finalClassName} {...props} />
+  },
+)

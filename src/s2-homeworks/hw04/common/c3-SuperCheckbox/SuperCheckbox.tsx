@@ -2,8 +2,6 @@ import { ChangeEvent, ComponentPropsWithoutRef, ElementRef, forwardRef } from 'r
 import s from './SuperCheckbox.module.css'
 
 // тип пропсов обычного инпута
-// TODO: add ForwardRef to every super component
-
 type SuperCheckboxPropsType = Omit<ComponentPropsWithoutRef<'input'>, 'type'> & {
   onChangeChecked?: (checked: boolean) => void
   inputClassName?: string

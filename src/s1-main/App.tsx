@@ -10,13 +10,13 @@ function App() {
 
   // homework autotests requires a number-based themeId from redux store.
   // So I introduced themeMap to provide more human-readable data-theme to CSS-selectors
-  const themeMap = {
+  const themeMap: Record<number, string> = {
     1: 'light',
     2: 'light-blue',
     3: 'dark',
   }
 
-  useAppTheme(themeId.toString(), themeMap)
+  useAppTheme(themeMap?.[themeId] ?? themeId)
 
   return (
     <div className={s.App}>

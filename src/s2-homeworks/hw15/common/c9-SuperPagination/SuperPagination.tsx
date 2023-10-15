@@ -12,7 +12,6 @@ export type SuperPaginationPropsType = {
   onChange: (page: number, count: number) => void
 }
 
-// TODO: add Forward ref for SuperPagination element if it's possible
 const SuperPagination: React.FC<SuperPaginationPropsType> = ({
   page,
   itemsCountForPage,
@@ -20,7 +19,7 @@ const SuperPagination: React.FC<SuperPaginationPropsType> = ({
   onChange,
   id = 'hw15',
 }) => {
-  const handlePageChange = (e: ChangeEvent<unknown>, page: number) => {
+  const handlePageChange = (_: ChangeEvent<unknown>, page: number) => {
     // пишет студент
     onChange(page, itemsCountForPage)
   }

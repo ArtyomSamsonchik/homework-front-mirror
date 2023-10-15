@@ -33,8 +33,9 @@ export const Sidebar: FC<PropsType> = ({ open, handleClose }) => {
               <NavLink
                 key={id}
                 id={id}
-                to={link}
+                to={`../${link}`}
                 onClick={handleClose}
+                relative={'path'}
                 className={getLinkClassName} // делает студент
               >
                 {parsePathName(link)}

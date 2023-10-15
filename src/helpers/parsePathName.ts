@@ -5,7 +5,8 @@ import capitalize from './capitalize'
  *  in range a-z in both cases divided by hyphens. White spaces are not allowed.
  *  The path may start with a "/" character.
  *  @param {function} mapFn is applied to every word in parsed string. Capitalize function is used by default.
- *  @return string a string joined from matched substrings obtained from mapFn
+ *  @return string a string joined from matched substrings obtained from mapFn.
+ *  Empty string is returned if no match found.
  *  @example parsePathName('/pre-junior', (str) => str.toUpperCase())
  */
 const parsePathName = (path: string, mapFn: (substr: string) => string = capitalize) => {

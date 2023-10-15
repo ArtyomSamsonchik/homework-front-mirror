@@ -51,14 +51,6 @@ code {
   }
 }
 
-/*
-  TODO: add animation when transitioning colors across themes,
-    including props: color, background-color, border-color, outline-color etc
-*/
-
-/*:global(.fade-in) :global {...} means: selector in parenthesis will not be transformed to "large local name"
-  and subsequent :global means that ruleset sill use global-scoped names inside itself
- */
 :global @keyframes fade-in {
   from {
     opacity: 0;

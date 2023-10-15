@@ -23,9 +23,12 @@ export const Header: FC<PropsType> = ({ handleOpen }) => {
   //     ? 'Junior Plus'
   //     : 'Error'
 
-  const pageTitle = Object.values(PATH).includes(location.pathname as AppPathValues)
-    ? parsePathName(location.pathname)
-    : 'Error'
+  const pathValues = Object.values(PATH)
+  const pathSegment = location.pathname
+    .split('/')
+    .find((segment) => pathValues.includes(segment as AppPathValues))
+
+  const pageTitle = pathSegment ? parsePathName(pathSegment) : 'Error'
 
   return (
     <div className={s.headerWrapper}>
