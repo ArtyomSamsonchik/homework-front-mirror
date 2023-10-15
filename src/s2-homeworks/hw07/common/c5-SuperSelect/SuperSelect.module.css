@@ -5,25 +5,6 @@
   font-size: 1rem;
 }
 
-.wrapper::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  right: 0;
-  height: 100%;
-  aspect-ratio: 1;
-  background: center / 90% no-repeat;
-  pointer-events: none;
-}
-
-[data-theme='light'] .wrapper::after {
-  background-image: url('./chevron-down-black.svg');
-}
-
-[data-theme='dark'] .wrapper::after {
-  background-image: url('./chevron-down-white.svg');
-}
-
 .select {
   appearance: none;
   position: relative;
@@ -40,14 +21,39 @@
   cursor: pointer;
 }
 
-/*TODO: add disabled styles for select and ::after*/
-
 [data-theme='dark'] .select {
   border-color: var(--accent-dark);
 }
 
 .select:focus {
   border-color: var(--blue-400);
+}
+
+.select.disabled {
+  cursor: unset;
+  opacity: 0.65;
+}
+
+.chevron {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+  aspect-ratio: 1;
+  background: center / 90% no-repeat;
+  pointer-events: none;
+}
+
+[data-theme='light'] .chevron {
+  background-image: url('./chevron-down-black.svg');
+}
+
+[data-theme='dark'] .chevron {
+  background-image: url('./chevron-down-white.svg');
+}
+
+.disabled + .chevron {
+  opacity: 0.5;
 }
 
 .option {

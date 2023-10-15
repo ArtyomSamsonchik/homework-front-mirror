@@ -11,24 +11,25 @@ type SuperSelectPropsType = ComponentPropsWithoutRef<'select'> & {
 const SuperSelect: React.FC<SuperSelectPropsType> = forwardRef<
   ElementRef<'select'>,
   SuperSelectPropsType
->(({ options = [], className, onChange, onChangeOption, ...restProps }, ref) => {
+>(({ options = [], className, onChange, onChangeOption, ...props }, ref) => {
   const onChangeCallback = (e: ChangeEvent<HTMLSelectElement>) => {
     // делают студенты
     onChange?.(e)
     onChangeOption?.(e.currentTarget.value)
   }
 
-  const finalClassName = `${s.select} ${className || ''}`
+  const finalClassName = [s.select, props.disabled ? s.disabled : '', className].join(' ')
 
   return (
     <div className={s.wrapper}>
-      <select ref={ref} className={finalClassName} onChange={onChangeCallback} {...restProps}>
+      <select ref={ref} className={finalClassName} onChange={onChangeCallback} {...props}>
         {options.map((o) => (
           <option id={'hw7-option-' + o.value} className={s.option} key={o.value} value={o.value}>
             {o.label}
           </option>
         ))}
       </select>
+      <span className={s.chevron} />
     </div>
   )
 })
